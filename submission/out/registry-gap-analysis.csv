@@ -1,0 +1,34 @@
+district,total_cameras,online,offline,anpr_viable,departments_present,uptime_pct,finding
+Ahmedabad,7,7,0,4,4,100.0,
+Amreli,0,0,0,0,0,,high: no cameras registered
+Anand,0,0,0,0,0,,high: no cameras registered
+Aravalli,0,0,0,0,0,,high: no cameras registered
+Banaskantha,0,0,0,0,0,,high: no cameras registered
+Bharuch,0,0,0,0,0,,high: no cameras registered
+Bhavnagar,0,0,0,0,0,,high: no cameras registered
+Botad,0,0,0,0,0,,high: no cameras registered
+Chhota Udaipur,0,0,0,0,0,,high: no cameras registered
+Dahod,0,0,0,0,0,,high: no cameras registered
+Dang,0,0,0,0,0,,high: no cameras registered
+Devbhumi Dwarka,0,0,0,0,0,,high: no cameras registered
+Gandhinagar,7,7,0,4,5,100.0,
+Gir Somnath,0,0,0,0,0,,high: no cameras registered
+Jamnagar,0,0,0,0,0,,high: no cameras registered
+Junagadh,0,0,0,0,0,,high: no cameras registered
+Kheda,0,0,0,0,0,,high: no cameras registered
+Kutch,0,0,0,0,0,,high: no cameras registered
+Mahisagar,0,0,0,0,0,,high: no cameras registered
+Mehsana,1,1,0,1,1,100.0,
+Morbi,0,0,0,0,0,,high: no cameras registered
+Narmada,0,0,0,0,0,,high: no cameras registered
+Navsari,0,0,0,0,0,,high: no cameras registered
+Panchmahal,0,0,0,0,0,,high: no cameras registered
+Patan,0,0,0,0,0,,high: no cameras registered
+Porbandar,0,0,0,0,0,,high: no cameras registered
+Rajkot,0,0,0,0,0,,high: no cameras registered
+Sabarkantha,0,0,0,0,0,,high: no cameras registered
+Surat,0,0,0,0,0,,high: no cameras registered
+Surendranagar,0,0,0,0,0,,high: no cameras registered
+Tapi,0,0,0,0,0,,high: no cameras registered
+Vadodara,0,0,0,0,0,,high: no cameras registered
+Valsad,0,0,0,0,0,,high: no cameras registered

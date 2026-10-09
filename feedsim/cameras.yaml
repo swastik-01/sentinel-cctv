@@ -1,0 +1,267 @@
+# Simulated camera fleet. Mirrors the sandbox: multiple departments, mixed codecs,
+# mixed resolutions, and a realistic split between cameras where plates are
+# legible (anpr_viable) and wide-angle cameras where they are not.
+#
+# `scene` drives synth.py:  close | mid | wide | analog
+# `plates` are the vehicles that pass through this camera's synthetic clip.
+# The same plate appearing across several cameras is what makes the
+# movement-history query meaningful.
+
+cameras:
+  - code: GNR-POL-001
+    name: Sector 21 Circle, Gandhinagar
+    department: HOME
+    district: Gandhinagar
+    lat: 23.2233
+    lon: 72.6503
+    codec: h264
+    resolution: 1920x1080
+    fps: 25
+    mode: ip_rtsp
+    camera_class: anpr
+    vendor: Hikvision
+    retention_days: 15
+    storage: local
+    scene: close
+    anpr_viable: true
+    plates: [GJ01AB1234, GJ18CD5678, GJ05EF9012]
+
+  - code: GNR-POL-002
+    name: CH-0 Circle, Gandhinagar
+    department: HOME
+    district: Gandhinagar
+    lat: 23.2156
+    lon: 72.6369
+    codec: h265
+    resolution: 1280x720
+    fps: 25
+    mode: ip_onvif
+    camera_class: bullet
+    vendor: Dahua
+    retention_days: 15
+    storage: local
+    scene: mid
+    anpr_viable: true
+    plates: [GJ01AB1234, GJ27GH3456, GJ06JK7890]
+
+  - code: GNR-GSRTC-001
+    name: Gandhinagar Bus Depot Gate
+    department: GSRTC
+    district: Gandhinagar
+    lat: 23.2242
+    lon: 72.6413
+    codec: h264
+    resolution: 1280x720
+    fps: 15
+    mode: vms_api
+    camera_class: fixed
+    vendor: CP Plus
+    retention_days: 7
+    storage: cloud
+    scene: close
+    anpr_viable: true
+    plates: [GJ18CD5678, GJ01ZZ0001, GJ01AB1234]
+
+  - code: GNR-HLTH-001
+    name: Civil Hospital Sector 12 Entrance
+    department: HEALTH
+    district: Gandhinagar
+    lat: 23.2275
+    lon: 72.6520
+    codec: h264
+    resolution: 704x576
+    fps: 12
+    mode: analog_dvr
+    camera_class: dome
+    vendor: Zicom
+    retention_days: 7
+    storage: local
+    scene: analog
+    anpr_viable: false
+    plates: [GJ05EF9012, GJ27GH3456]
+
+  - code: GNR-PNCHT-001
+    name: Pethapur Village Square
+    department: PNCHT
+    district: Gandhinagar
+    lat: 23.2794
+    lon: 72.6412
+    codec: h265
+    resolution: 1280x720
+    fps: 15
+    mode: ip_rtsp
+    camera_class: fixed
+    vendor: Uniview
+    retention_days: 10
+    storage: hybrid
+    scene: wide
+    anpr_viable: false
+    plates: [GJ18CD5678, GJ06JK7890]
+
+  - code: AMD-AMC-001
+    name: Income Tax Circle, Ashram Road
+    department: MUNI
+    district: Ahmedabad
+    lat: 23.0367
+    lon: 72.5644
+    codec: h264
+    resolution: 1920x1080
+    fps: 25
+    mode: vms_api
+    camera_class: anpr
+    vendor: Honeywell
+    retention_days: 30
+    storage: cloud
+    scene: close
+    anpr_viable: true
+    plates: [GJ01AB1234, GJ05EF9012, GJ01ZZ0001, GJ27GH3456]
+
+  - code: AMD-AMC-002
+    name: SG Highway, Thaltej Junction
+    department: MUNI
+    district: Ahmedabad
+    lat: 23.0480
+    lon: 72.5140
+    codec: h265
+    resolution: 1920x1080
+    fps: 25
+    mode: vms_api
+    camera_class: anpr
+    vendor: Honeywell
+    retention_days: 30
+    storage: cloud
+    scene: close
+    anpr_viable: true
+    plates: [GJ18CD5678, GJ06JK7890, GJ01AB1234]
+
+  - code: AMD-POL-001
+    name: Sarkhej-Gandhinagar Highway Toll Approach
+    department: HOME
+    district: Ahmedabad
+    lat: 23.0086
+    lon: 72.5027
+    codec: h264
+    resolution: 1280x720
+    fps: 25
+    mode: ip_rtsp
+    camera_class: anpr
+    vendor: Hikvision
+    retention_days: 15
+    storage: local
+    scene: mid
+    anpr_viable: true
+    plates: [GJ01ZZ0001, GJ27GH3456, GJ05EF9012]
+
+  - code: AMD-HLTH-001
+    name: Civil Hospital Asarwa Main Gate
+    department: HEALTH
+    district: Ahmedabad
+    lat: 23.0521
+    lon: 72.6040
+    codec: h264
+    resolution: 704x576
+    fps: 12
+    mode: analog_dvr
+    camera_class: dome
+    vendor: Zicom
+    retention_days: 7
+    storage: local
+    scene: analog
+    anpr_viable: false
+    plates: [GJ01AB1234, GJ06JK7890]
+
+  - code: AMD-GSRTC-001
+    name: Gita Mandir Bus Stand
+    department: GSRTC
+    district: Ahmedabad
+    lat: 22.9968
+    lon: 72.5940
+    codec: h265
+    resolution: 1280x720
+    fps: 15
+    mode: vms_api
+    camera_class: fixed
+    vendor: CP Plus
+    retention_days: 7
+    storage: cloud
+    scene: wide
+    anpr_viable: false
+    plates: [GJ18CD5678, GJ01ZZ0001]
+
+  - code: GNR-PNCHT-002
+    name: Adalaj Stepwell Approach Road
+    department: PNCHT
+    district: Gandhinagar
+    lat: 23.1665
+    lon: 72.5806
+    codec: h264
+    resolution: 1280x720
+    fps: 15
+    mode: ip_onvif
+    camera_class: bullet
+    vendor: Uniview
+    retention_days: 10
+    storage: hybrid
+    scene: mid
+    anpr_viable: true
+    plates: [GJ01AB1234, GJ27GH3456, GJ18CD5678]
+
+  - code: MHS-POL-001
+    name: Mehsana Highway Checkpost
+    department: HOME
+    district: Mehsana
+    lat: 23.5880
+    lon: 72.3693
+    codec: h264
+    resolution: 1920x1080
+    fps: 25
+    mode: ip_rtsp
+    camera_class: anpr
+    vendor: Dahua
+    retention_days: 15
+    storage: local
+    scene: close
+    anpr_viable: true
+    plates: [GJ01ZZ0001, GJ05EF9012, GJ06JK7890]
+
+  # --- Stock traffic footage (Pexels licence: free to use and modify) -------------------
+  # synth.py's rectangles are invisible to a general object detector, so these two cameras
+  # replay real traffic instead. realclip.py crops the source to the camera's view and
+  # replaces every number plate it finds with a synthetic Gujarat registration (ground
+  # truth in media/<CODE>.plates.json). The locations are simulated, like every camera here.
+  # `analytics: true` asks for the analytics worker even where plates are not legible,
+  # which is how a wide camera gets vehicle and person counts.
+  - code: AMD-TRAF-001
+    name: Ashram Road Junction, Ahmedabad (stock traffic footage)
+    department: HOME
+    district: Ahmedabad
+    lat: 23.0469
+    lon: 72.5680
+    codec: h264
+    resolution: 1920x1080
+    fps: 25
+    mode: ip_rtsp
+    camera_class: ptz
+    vendor: Axis
+    retention_days: 30
+    storage: local
+    anpr_viable: false
+    analytics: true
+    real: {pexels_id: 30608914, crop: [0, 0, 3840, 2160], start: 0, seconds: 60, max_plate_frac: 0.04}
+
+  - code: AMD-TRAF-002
+    name: Paldi Char Rasta, Ahmedabad (stock traffic footage)
+    department: HOME
+    district: Ahmedabad
+    lat: 23.0120
+    lon: 72.5627
+    codec: h265
+    resolution: 1920x1080
+    fps: 25
+    mode: ip_rtsp
+    camera_class: anpr
+    vendor: Hikvision
+    retention_days: 30
+    storage: local
+    anpr_viable: true
+    real: {pexels_id: 30609021, crop: [300, 1350, 1440, 810], start: 0, seconds: 60}

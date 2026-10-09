@@ -1,0 +1,5 @@
+[
+  {"category": "BOLO", "vehicle_regn": "GJ05EF9012", "subject": null, "fir_no": "FIR/AMD/2026/2290", "details": "Vehicle seen leaving scene of chain-snatching, Naranpura"},
+  {"category": "WANTED", "vehicle_regn": "GJ18CD5678", "subject": "Subject A (synthetic)", "fir_no": "FIR/GNR/2026/0377", "details": "Absconding accused; vehicle registered to associate"},
+  {"category": "MISSING", "vehicle_regn": "GJ01AB1234", "subject": "Subject B (synthetic)", "fir_no": "MISSING/GNR/2026/0051", "details": "Missing person last seen driving this vehicle"}
+]

@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="1200" height="760">
+<defs><marker id="m-video" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0369A1"/></marker><marker id="m-meta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="m-alert" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#DC2626"/></marker><marker id="m-control" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748B"/></marker><marker id="m-ext" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#B45309"/></marker><marker id="m-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker></defs>
+<rect width="1200" height="760" fill="#FFFFFF"/>
+
+<rect x="24" y="24" width="250" height="99" rx="9" fill="#FFFFFF" stroke="#475569" stroke-width="1.6"/>
+<path d="M24,33 a9,9 0 0 1 9,-9 h232 a9,9 0 0 1 9,9 v21 h-250 z" fill="#475569"/>
+<text x="36" y="45" font-family="Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#FFFFFF">departments</text>
+<text x="36" y="74" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#0F172A" font-weight="700">id</text>
+<text x="36" y="93" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">code  (HOME, MUNI, GSRTC…)</text>
+<text x="36" y="112" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">name</text>
+<rect x="24" y="150" width="250" height="99" rx="9" fill="#FFFFFF" stroke="#475569" stroke-width="1.6"/>
+<path d="M24,159 a9,9 0 0 1 9,-9 h232 a9,9 0 0 1 9,9 v21 h-250 z" fill="#475569"/>
+<text x="36" y="171" font-family="Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#FFFFFF">districts</text>
+<text x="36" y="200" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#0F172A" font-weight="700">id</text>
+<text x="36" y="219" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">name · range_name</text>
+<text x="36" y="238" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">centroid · boundary (geography)</text>
+<rect x="24" y="296" width="250" height="137" rx="9" fill="#FFFFFF" stroke="#475569" stroke-width="1.6"/>
+<path d="M24,305 a9,9 0 0 1 9,-9 h232 a9,9 0 0 1 9,9 v21 h-250 z" fill="#475569"/>
+<text x="36" y="317" font-family="Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#FFFFFF">source_systems</text>
+<text x="36" y="346" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#0F172A" font-weight="700">id</text>
+<text x="36" y="365" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">department_id</text>
+<text x="36" y="384" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">vendor · product · mode</text>
+<text x="36" y="403" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">adapter · credentials_ref</text>
+<text x="36" y="422" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">remains_independent = true</text>
+<rect x="318" y="24" width="290" height="251" rx="9" fill="#FFFFFF" stroke="#0369A1" stroke-width="1.6"/>
+<path d="M318,33 a9,9 0 0 1 9,-9 h272 a9,9 0 0 1 9,9 v21 h-290 z" fill="#0369A1"/>
+<text x="330" y="45" font-family="Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#FFFFFF">cameras</text>
+<text x="330" y="74" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#0F172A" font-weight="700">id · camera_code</text>
+<text x="330" y="93" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">department_id · district_id</text>
+<text x="330" y="112" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">source_system_id</text>
+<text x="330" y="131" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">location  geography(Point)</text>
+<text x="330" y="150" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">camera_class · mode · ownership</text>
+<text x="330" y="169" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">vendor · codec · resolution · fps</text>
+<text x="330" y="188" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">retention_days · storage</text>
+<text x="330" y="207" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">rtsp_url · whep_url · hls_url</text>
+<text x="330" y="226" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">anpr_viable · analytics_enabled</text>
+<text x="330" y="245" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">health · last_seen_at</text>
+<text x="330" y="264" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">tags  (incl. intrusion zones)</text>
+<rect x="318" y="330" width="290" height="99" rx="9" fill="#FFFFFF" stroke="#0369A1" stroke-width="1.6"/>
+<path d="M318,339 a9,9 0 0 1 9,-9 h272 a9,9 0 0 1 9,9 v21 h-290 z" fill="#0369A1"/>
+<text x="330" y="351" font-family="Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#FFFFFF">camera_sources</text>
+<text x="330" y="380" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#0F172A" font-weight="700">camera_id</text>
+<text x="330" y="399" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">source_url  (server-side only)</text>
+<text x="330" y="418" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">on_demand · probed codec/size</text>
+<rect x="318" y="470" width="290" height="80" rx="9" fill="#FFFFFF" stroke="#0369A1" stroke-width="1.6"/>
+<path d="M318,479 a9,9 0 0 1 9,-9 h272 a9,9 0 0 1 9,9 v21 h-290 z" fill="#0369A1"/>
+<text x="330" y="491" font-family="Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#FFFFFF">camera_health_checks</text>
+<text x="330" y="520" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">camera_id · checked_at</text>
+<text x="330" y="539" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">reachable · latency_ms · state</text>
+<rect x="652" y="24" width="250" height="170" rx="9" fill="#FFFFFF" stroke="#047857" stroke-width="1.6"/>
+<path d="M652,33 a9,9 0 0 1 9,-9 h232 a9,9 0 0 1 9,9 v21 h-250 z" fill="#047857"/>
+<text x="664" y="45" font-family="Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#FFFFFF">vehicle_sightings</text>
+<text x="664" y="74" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#0F172A" font-weight="700">id · event_ts  (frame time)</text>
+<text x="664" y="93" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">camera_id</text>
+<text x="664" y="112" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">plate_text · plate_norm</text>
+<text x="664" y="131" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">ocr_conf · det_conf</text>
+<text x="664" y="150" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">vehicle_type · vehicle_color</text>
+<text x="664" y="169" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">bbox · track_id · crop_path</text>
+<text x="664" y="184" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="11.5" font-style="italic" fill="#047857">partitioned by month · trigram index</text>
+<rect x="652" y="250" width="250" height="132" rx="9" fill="#FFFFFF" stroke="#047857" stroke-width="1.6"/>
+<path d="M652,259 a9,9 0 0 1 9,-9 h232 a9,9 0 0 1 9,9 v21 h-250 z" fill="#047857"/>
+<text x="664" y="271" font-family="Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#FFFFFF">detection_events</text>
+<text x="664" y="300" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#0F172A" font-weight="700">id · event_ts</text>
+<text x="664" y="319" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">camera_id · event_type</text>
+<text x="664" y="338" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">  (object_counts, intrusion)</text>
+<text x="664" y="357" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">label · value · detail</text>
+<text x="664" y="372" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="11.5" font-style="italic" fill="#047857">partitioned by month</text>
+<rect x="940" y="24" width="236" height="151" rx="9" fill="#FFFFFF" stroke="#B45309" stroke-width="1.6"/>
+<path d="M940,33 a9,9 0 0 1 9,-9 h218 a9,9 0 0 1 9,9 v21 h-236 z" fill="#B45309"/>
+<text x="952" y="45" font-family="Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#FFFFFF">watchlist_entries</text>
+<text x="952" y="74" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#0F172A" font-weight="700">id · kind</text>
+<text x="952" y="93" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">plate_norm · subject_name</text>
+<text x="952" y="112" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">severity · source</text>
+<text x="952" y="131" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">source_ref  (FIR)</text>
+<text x="952" y="150" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">active · valid_until</text>
+<text x="952" y="165" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="11.5" font-style="italic" fill="#B45309">+ watchlist_masks (near misses)</text>
+<rect x="940" y="250" width="236" height="175" rx="9" fill="#FFFFFF" stroke="#DC2626" stroke-width="1.6"/>
+<path d="M940,259 a9,9 0 0 1 9,-9 h218 a9,9 0 0 1 9,9 v21 h-236 z" fill="#DC2626"/>
+<text x="952" y="271" font-family="Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#FFFFFF">alerts</text>
+<text x="952" y="300" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#0F172A" font-weight="700">id · watchlist_id</text>
+<text x="952" y="319" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">alert_type · camera_id</text>
+<text x="952" y="338" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">sighting_id/ts · retrospective</text>
+<text x="952" y="357" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">match_score · exact_match</text>
+<text x="952" y="376" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">severity · status · detail</text>
+<text x="952" y="395" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">acknowledged_by/at</text>
+<text x="952" y="414" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">closed_at · disposition</text>
+<rect x="652" y="430" width="250" height="118" rx="9" fill="#FFFFFF" stroke="#6D28D9" stroke-width="1.6"/>
+<path d="M652,439 a9,9 0 0 1 9,-9 h232 a9,9 0 0 1 9,9 v21 h-250 z" fill="#6D28D9"/>
+<text x="664" y="451" font-family="Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#FFFFFF">users</text>
+<text x="664" y="480" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#0F172A" font-weight="700">id · username</text>
+<text x="664" y="499" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">role_id</text>
+<text x="664" y="518" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">department_id · district_id</text>
+<text x="664" y="537" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">(NULL = statewide scope)</text>
+<rect x="652" y="596" width="250" height="80" rx="9" fill="#FFFFFF" stroke="#6D28D9" stroke-width="1.6"/>
+<path d="M652,605 a9,9 0 0 1 9,-9 h232 a9,9 0 0 1 9,9 v21 h-250 z" fill="#6D28D9"/>
+<text x="664" y="617" font-family="Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#FFFFFF">roles</text>
+<text x="664" y="646" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#0F172A" font-weight="700">id · code</text>
+<text x="664" y="665" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">permissions  jsonb</text>
+<rect x="940" y="470" width="236" height="113" rx="9" fill="#FFFFFF" stroke="#6D28D9" stroke-width="1.6"/>
+<path d="M940,479 a9,9 0 0 1 9,-9 h218 a9,9 0 0 1 9,9 v21 h-236 z" fill="#6D28D9"/>
+<text x="952" y="491" font-family="Consolas, 'Courier New', monospace" font-size="14" font-weight="700" fill="#FFFFFF">audit_log</text>
+<text x="952" y="520" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">at · actor · action</text>
+<text x="952" y="539" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">object_type · object_id</text>
+<text x="952" y="558" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#475569">purpose · ip · detail</text>
+<text x="952" y="573" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="11.5" font-style="italic" fill="#6D28D9">UPDATE / DELETE → no-op</text>
+<path d="M318,62 L274,62" fill="none" stroke="#334155" stroke-width="1.5" marker-end="url(#m-plain)" stroke-linejoin="round"/>
+<path d="M318,104 L300,104 L300,196 L274,196" fill="none" stroke="#334155" stroke-width="1.5" marker-end="url(#m-plain)" stroke-linejoin="round"/>
+<path d="M318,132 L288,132 L288,356 L274,356" fill="none" stroke="#334155" stroke-width="1.5" marker-end="url(#m-plain)" stroke-linejoin="round"/>
+<path d="M463,330 L463,275" fill="none" stroke="#334155" stroke-width="1.5" marker-end="url(#m-plain)" stroke-linejoin="round"/>
+<path d="M463,470 L463,429" fill="none" stroke="#334155" stroke-width="1.5" marker-end="url(#m-plain)" stroke-linejoin="round"/>
+<path d="M652,62 L608,62" fill="none" stroke="#334155" stroke-width="1.5" marker-end="url(#m-plain)" stroke-linejoin="round"/>
+<path d="M652,302.8 L630,302.8 L630,150 L608,150" fill="none" stroke="#334155" stroke-width="1.5" marker-end="url(#m-plain)" stroke-linejoin="round"/>
+<path d="M940,302.5 L920,302.5 L920,109 L902,109" fill="none" stroke="#334155" stroke-width="1.5" marker-end="url(#m-plain)" stroke-linejoin="round"/>
+<path d="M1058,250 L1058,175" fill="none" stroke="#334155" stroke-width="1.5" marker-end="url(#m-plain)" stroke-linejoin="round"/>
+<path d="M777,548 L777,596" fill="none" stroke="#334155" stroke-width="1.5" marker-end="url(#m-plain)" stroke-linejoin="round"/>
+<path d="M940,522 L920,522 L920,468 L902,468" fill="none" stroke="#334155" stroke-width="1.5" marker-end="url(#m-plain)" stroke-linejoin="round"/>
+<text x="24" y="736" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#334155">Video is not stored here: it stays on department recorders. The platform holds registry, metadata, evidence crops and the audit trail.</text>
+</svg>

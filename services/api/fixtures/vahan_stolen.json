@@ -1,0 +1,7 @@
+[
+  {"regn_no": "GJ01ZZ0001", "flag": "STOLEN", "fir_no": "FIR/GNR/2026/0412", "remarks": "Reported stolen, Sector 7 Gandhinagar, 12 Sep 2026", "vehicle_class": "LMV", "maker": "Maruti", "model": "Swift", "colour": "White"},
+  {"regn_no": "GJ27GH3456", "flag": "STOLEN", "fir_no": "FIR/AMD/2026/2231", "remarks": "Two-wheeler theft, Vastrapur", "vehicle_class": "2WN", "maker": "Honda", "model": "Activa", "colour": "Grey"},
+  {"regn_no": "GJ06JK7890", "flag": "BLACKLIST", "ref": "RTO/VAD/BL/1189", "remarks": "Fitness expired, repeat overloading challans", "vehicle_class": "HGV", "maker": "Tata", "model": "LPT 1613", "colour": "Yellow"},
+  {"regn_no": "GJ13AG7711", "flag": "STOLEN", "fir_no": "FIR/AMD/2026/2517", "remarks": "Reported stolen, Ashram Road, Ahmedabad, 20 Sep 2026", "vehicle_class": "LMV", "maker": "Maruti", "model": "Dzire", "colour": "White"},
+  {"regn_no": "MH04XY9999", "flag": "STOLEN", "fir_no": "FIR/MUM/2026/7781", "remarks": "Interstate alert via NCRB", "vehicle_class": "LMV", "maker": "Hyundai", "model": "Creta", "colour": "Black"}
+]

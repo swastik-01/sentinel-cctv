@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="1200" height="760">
+<defs><marker id="m-video" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0369A1"/></marker><marker id="m-meta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="m-alert" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#DC2626"/></marker><marker id="m-control" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748B"/></marker><marker id="m-ext" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#B45309"/></marker><marker id="m-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker></defs>
+<rect width="1200" height="760" fill="#FFFFFF"/>
+<path d="M120,68 L120,720" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4 4"/>
+<path d="M380,68 L380,720" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4 4"/>
+<path d="M640,68 L640,720" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4 4"/>
+<path d="M880,68 L880,720" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4 4"/>
+<path d="M1090,68 L1090,720" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4 4"/>
+<rect x="24" y="636" width="1152" height="108" rx="10" fill="#F8FAFC" stroke="#E2E8F0"/>
+<rect x="30" y="20" width="180" height="48" rx="10" fill="#FFE4E6" stroke="#BE123C" stroke-width="1.6"/>
+<text x="120" y="50" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">Operator</text>
+<rect x="290" y="20" width="180" height="48" rx="10" fill="#E0F2FE" stroke="#0369A1" stroke-width="1.6"/>
+<text x="380" y="50" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">Sentinel API</text>
+<rect x="550" y="20" width="180" height="48" rx="10" fill="#E0F2FE" stroke="#0369A1" stroke-width="1.6"/>
+<text x="640" y="50" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">MediaMTX relay</text>
+<rect x="790" y="20" width="180" height="48" rx="10" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="880" y="50" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">Camera / VMS</text>
+<rect x="1000" y="20" width="180" height="48" rx="10" fill="#ECFDF5" stroke="#047857" stroke-width="1.6"/>
+<text x="1090" y="50" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">PostGIS · audit</text>
+<path d="M124,116 L376,116" fill="none" stroke="#334155" stroke-width="1.5" marker-end="url(#m-plain)" stroke-linejoin="round"/>
+<path d="M384,166 L636,166" fill="none" stroke="#64748B" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#m-control)" stroke-linejoin="round"/>
+<path d="M644,216 L876,216" fill="none" stroke="#0369A1" stroke-width="2.2" marker-end="url(#m-video)" stroke-linejoin="round"/>
+<path d="M876,266 L644,266" fill="none" stroke="#64748B" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#m-control)" stroke-linejoin="round"/>
+<path d="M384,316 L636,316" fill="none" stroke="#64748B" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#m-control)" stroke-linejoin="round"/>
+<path d="M636,366 L384,366" fill="none" stroke="#64748B" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#m-control)" stroke-linejoin="round"/>
+<path d="M384,416 L636,416" fill="none" stroke="#64748B" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#m-control)" stroke-linejoin="round"/>
+<path d="M384,466 L1086,466" fill="none" stroke="#047857" stroke-width="2.2" marker-end="url(#m-meta)" stroke-linejoin="round"/>
+<path d="M384,516 L1086,516" fill="none" stroke="#047857" stroke-width="2.2" marker-end="url(#m-meta)" stroke-linejoin="round"/>
+<path d="M376,566 L124,566" fill="none" stroke="#64748B" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#m-control)" stroke-linejoin="round"/>
+<path d="M384,686 L636,686" fill="none" stroke="#64748B" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#m-control)" stroke-linejoin="round"/>
+<text x="250" y="107" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" font-weight="600" fill="#334155">POST /onboard/stream { code, dept, location, rtsp://user:***@… }</text>
+<text x="388" y="120" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="11.5" font-weight="400" fill="#64748B">another department's camera → 403</text>
+<text x="510" y="157" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" font-weight="600" fill="#64748B">add relay path · source URL · RTSP over TCP</text>
+<text x="760" y="207" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" font-weight="600" fill="#0369A1">DESCRIBE · SETUP · PLAY</text>
+<text x="760" y="257" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" font-weight="600" fill="#475569">H.265 1280×720 stream</text>
+<text x="510" y="307" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" font-weight="600" fill="#64748B">poll path state</text>
+<text x="510" y="357" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" font-weight="600" fill="#475569">ready · tracks: H265 · 1280×720</text>
+<text x="510" y="407" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" font-weight="600" fill="#64748B">view-only camera → switch relay to on-demand</text>
+<text x="735" y="457" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" font-weight="600" fill="#047857">upsert camera + camera_sources (URL stays server-side)</text>
+<text x="735" y="507" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" font-weight="600" fill="#047857">audit camera.onboarded_* (credentials masked)</text>
+<text x="250" y="557" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" font-weight="600" fill="#475569">RTSP / WHEP / HLS endpoints on the relay</text>
+<rect x="160" y="594" width="290" height="30" rx="6" fill="#0F172A"/>
+<text x="305" y="614" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" font-weight="700" fill="#FFFFFF">measured 17 Sep: 1.2–2.0 s, idle stack</text>
+<text x="40" y="656" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="11" font-weight="700" fill="#64748B">EVERY HEALTH INTERVAL (20 s)</text>
+<text x="510" y="677" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" font-weight="600" fill="#64748B">relay missing after a media-server restart? → re-register</text>
+<text x="648" y="690" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="11.5" font-weight="400" fill="#64748B">tested 17 Sep: 2/2 relays restored</text>
+<text x="40" y="728" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#64748B"></text>
+<path d="M40,746 L66,746" stroke="#0369A1" stroke-width="2.2" marker-end="url(#m-video)"/>
+<text x="76" y="750" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12" fill="#334155">Media session</text>
+<path d="M200,746 L226,746" stroke="#64748B" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#m-control)"/>
+<text x="236" y="750" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12" fill="#334155">Control plane</text>
+<path d="M360,746 L386,746" stroke="#047857" stroke-width="2.2" marker-end="url(#m-meta)"/>
+<text x="396" y="750" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12" fill="#334155">Persistence</text>
+</svg>

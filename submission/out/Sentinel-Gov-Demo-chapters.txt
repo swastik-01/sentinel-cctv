@@ -1,0 +1,10 @@
+0:00 Title
+0:05 Sign in
+0:11 The 30 sandbox cameras in the registry
+0:25 On the map
+0:33 Live video wall
+0:50 Vehicle and person detection
+0:59 Intrusion zones and alerts
+1:08 A designated vehicle on the government feed
+1:31 The output report
+1:48 Summary

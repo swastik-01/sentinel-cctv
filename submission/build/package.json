@@ -1,0 +1,16 @@
+{
+  "name": "sentinel-submission",
+  "private": true,
+  "type": "module",
+  "description": "Builds the hackathon submission pack: diagrams, HLD/Plan-for-Scale PDFs, deck, demo video",
+  "scripts": {
+    "diagrams": "node render.mjs diagrams",
+    "docs": "node docs.mjs",
+    "deck": "node deck.cjs",
+    "all": "node render.mjs diagrams && node docs.mjs && node deck.cjs"
+  },
+  "dependencies": {
+    "marked": "^14.1.2",
+    "pptxgenjs": "^3.12.0"
+  }
+}

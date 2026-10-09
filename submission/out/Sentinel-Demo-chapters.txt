@@ -1,0 +1,13 @@
+0:00 Title
+0:04 Role-based sign-in
+0:10 Control room overview
+0:16 GIS registry map
+0:24 Onboard a camera by stream URL
+0:38 Unified video wall
+0:49 Vehicle and person detection
+1:17 Watchlists (mock VAHAN and eGujCop)
+1:27 Real-time watchlist alerts
+1:38 Vehicle movement history
+1:51 Health monitoring and gap analysis
+1:58 Audit trail and privacy
+2:04 Summary

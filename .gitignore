@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# Env & secrets
+.env
+.env.local
+*.pem
+*.key
+credentials.json
+
+# Media & model weights (never commit government footage)
+feedsim/media/*
+!feedsim/media/.gitkeep
+models/
+*.pt
+*.onnx
+*.engine
+*.mp4
+*.mkv
+*.avi
+
+# Runtime artifacts
+data/
+crops/
+logs/
+*.log
+bench/results/*.json
+
+# OS
+Thumbs.db
+.DS_Store
+
+# submission build
+submission/build/node_modules/
+submission/out/*.mp4
+submission/out/video_frames/
+submission/out/slides_png/
+submission/out/finale_png/
+# regenerable submission build outputs (rebuild with submission/build scripts)
+submission/out/cards/
+submission/out/screens/
+submission/out/diagrams/
+submission/out/frames.ffconcat
+submission/out/detections_*.html
+submission/out/gov_frames/
+submission/out/gov.ffconcat
+submission/out/gov_detections_*.html
+# the government-feed report lists real registrations from the organisers' footage: a deliverable, never in git
+submission/out/gov_detections_*

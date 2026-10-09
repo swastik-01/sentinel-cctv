@@ -1,0 +1,52 @@
+<!doctype html><meta charset="utf-8"><title>Sentinel — workflow and integration diagrams</title>
+<style>
+@page { size: A4 landscape; margin: 12mm 14mm 16mm; }
+body { font: 13px/1.45 "Segoe UI", Arial, sans-serif; color: #0f172a; margin: 0; }
+section { page-break-after: always; display: flex; flex-direction: column; gap: 6px; height: 176mm; }
+section:last-child { page-break-after: auto; }
+.kicker { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #0369a1; font-weight: 700; }
+h1 { font-size: 20px; margin: 0; }
+p { margin: 0; color: #475569; }
+.fig { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; }
+.fig img { max-width: 100%; max-height: 100%; }
+</style>
+<section>
+  <div class="kicker">Sentinel · Gujarat Police Innovation Challenge 2026 · figure 1 of 8</div>
+  <h1>Statewide architecture (target design)</h1><p>Department estates are untouched; district edge nodes relay and analyse video; only metadata reaches the state core, and a plate crop when an alert or search asks for it. Store-and-forward is built and tested in the PoC; the event bus, database standby and crop object store are design.</p>
+  <div class="fig"><img src="../../../docs/diagrams/d1-architecture.svg" alt="Statewide architecture (target design)"></div>
+</section>
+<section>
+  <div class="kicker">Sentinel · Gujarat Police Innovation Challenge 2026 · figure 2 of 8</div>
+  <h1>Integration workflow: onboarding a camera by stream URL</h1><p>The camera sees one session; credentials never leave the server; a department user can onboard only their own department's cameras. Measured: 1.2–2.0 s end to end on an idle stack (17 Sep).</p>
+  <div class="fig"><img src="../../../docs/diagrams/d3-onboarding.svg" alt="Integration workflow: onboarding a camera by stream URL"></div>
+</section>
+<section>
+  <div class="kicker">Sentinel · Gujarat Police Innovation Challenge 2026 · figure 3 of 8</div>
+  <h1>Analytics workflow: from RTSP frame to watchlist alert</h1><p>Hardware decode where available; plate detection and OCR, and vehicle and person detection, on the same frames; a per-character vote across each track's reads; a repeat filter; matching and alerting. Laptop measurements, 24 Sep.</p>
+  <div class="fig"><img src="../../../docs/diagrams/d4-anpr-pipeline.svg" alt="Analytics workflow: from RTSP frame to watchlist alert"></div>
+</section>
+<section>
+  <div class="kicker">Sentinel · Gujarat Police Innovation Challenge 2026 · figure 4 of 8</div>
+  <h1>Alert workflow: from sighting to closed alert</h1><p>Open alerts in severity order; near misses labelled; a plate added to the watchlist is checked against the last 24 hours. Every operator action is audited.</p>
+  <div class="fig"><img src="../../../docs/diagrams/d5-alert-workflow.svg" alt="Alert workflow: from sighting to closed alert"></div>
+</section>
+<section>
+  <div class="kicker">Sentinel · Gujarat Police Innovation Challenge 2026 · figure 5 of 8</div>
+  <h1>Security zones (target design)</h1><p>Each arrow is a permitted flow; video leaves the district only to authorised viewers. The PoC runs every zone on one laptop over plain HTTP: HLD 11.4 says what is built and what is not.</p>
+  <div class="fig"><img src="../../../docs/diagrams/d8-security-zones.svg" alt="Security zones (target design)"></div>
+</section>
+<section>
+  <div class="kicker">Sentinel · Gujarat Police Innovation Challenge 2026 · figure 6 of 8</div>
+  <h1>Proof of concept, as built</h1><p>Every box is running code in the repository. VAHAN and eGujCop are mock adapters; two cameras are stock footage with synthetic plates.</p>
+  <div class="fig"><img src="../../../docs/diagrams/d2-poc-components.svg" alt="Proof of concept, as built"></div>
+</section>
+<section>
+  <div class="kicker">Sentinel · Gujarat Police Innovation Challenge 2026 · figure 7 of 8</div>
+  <h1>Core data model</h1><p>Video is not stored in the platform; sightings and counts are partitioned by time.</p>
+  <div class="fig"><img src="../../../docs/diagrams/d7-data-model.svg" alt="Core data model"></div>
+</section>
+<section>
+  <div class="kicker">Sentinel · Gujarat Police Innovation Challenge 2026 · figure 8 of 8</div>
+  <h1>Statewide sizing</h1><p>Derived in the Plan for Scale document from bench/capacity.py. Streams per node, tier shares and unit prices are ASSUMPTIONS until measured or quoted.</p>
+  <div class="fig"><img src="../../../docs/diagrams/d6-scale.svg" alt="Statewide sizing"></div>
+</section>

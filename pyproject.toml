@@ -1,0 +1,21 @@
+[project]
+name = "sentinel-workspace"
+version = "0.1.0"
+description = "Sentinel: unified CCTV integration platform (Gujarat Police Innovation Challenge 2026)"
+requires-python = ">=3.12,<3.13"
+
+[tool.uv.workspace]
+members = ["services/common", "services/api", "services/analytics"]
+
+[tool.uv.sources]
+sentinel-common = { workspace = true }
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[dependency-groups]
+dev = ["pytest>=8.3"]
+
+[tool.pytest.ini_options]
+testpaths = ["services/analytics/tests", "services/api/tests"]

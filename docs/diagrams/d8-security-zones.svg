@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 770" width="1200" height="770">
+<defs><marker id="m-video" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0369A1"/></marker><marker id="m-meta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="m-alert" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#DC2626"/></marker><marker id="m-control" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#64748B"/></marker><marker id="m-ext" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#B45309"/></marker><marker id="m-plain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker></defs>
+<rect width="1200" height="770" fill="#FFFFFF"/>
+<rect x="16" y="16" width="226" height="540" rx="16" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.2"/>
+<text x="32" y="38" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2" fill="#475569">CAMERA NETWORKS</text>
+<rect x="266" y="16" width="300" height="540" rx="16" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.2"/>
+<text x="282" y="38" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2" fill="#475569">DISTRICT EDGE · ×33</text>
+<rect x="590" y="16" width="360" height="540" rx="16" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.2"/>
+<text x="606" y="38" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2" fill="#475569">STATE CORE · GSDC + DR</text>
+<rect x="970" y="16" width="214" height="540" rx="16" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.2"/>
+<text x="986" y="38" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2" fill="#475569">EXTERNAL SYSTEMS</text>
+<rect x="266" y="572" width="684" height="152" rx="16" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.2"/>
+<text x="282" y="594" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2" fill="#475569">CONTROL ROOMS</text>
+<rect x="30" y="48" width="198" height="96" rx="10" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="44" y="74" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">Cameras · NVR · VMS</text>
+<text x="44" y="94" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">IP · analog via DVR</text>
+<text x="44" y="111" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">department-owned</text>
+<rect x="30" y="160" width="198" height="84" rx="10" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="44" y="186" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">Private-shared</text>
+<text x="44" y="206" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">by written agreement</text>
+<rect x="30" y="260" width="198" height="110" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
+<text x="44" y="286" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">Camera VLAN</text>
+<text x="44" y="306" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">no internet egress</text>
+<text x="44" y="323" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">reachable only from</text>
+<text x="44" y="340" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">the district edge</text>
+<rect x="30" y="386" width="198" height="120" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
+<text x="44" y="412" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">Read-only access</text>
+<text x="44" y="432" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">one viewer account per</text>
+<text x="44" y="449" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">camera or recorder;</text>
+<text x="44" y="466" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">Sentinel never writes</text>
+<text x="44" y="483" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">to department devices</text>
+<rect x="282" y="48" width="268" height="72" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="1.6"/>
+<text x="296" y="74" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">Edge firewall</text>
+<text x="296" y="94" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">only bridge: camera VLAN ↔ backbone</text>
+<rect x="282" y="136" width="268" height="118" rx="10" fill="#E0F2FE" stroke="#0369A1" stroke-width="1.6"/>
+<text x="296" y="162" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">Media relay (MediaMTX)</text>
+<text x="296" y="182" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">pulls RTSP · one session per camera</text>
+<text x="296" y="199" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">viewers: WebRTC (DTLS-SRTP) · HLS</text>
+<text x="296" y="216" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">each view authorised by the API</text>
+<text x="296" y="233" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">control API: from the core only</text>
+<rect x="282" y="270" width="268" height="100" rx="10" fill="#E0F2FE" stroke="#0369A1" stroke-width="1.6"/>
+<text x="296" y="296" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">GPU analytics nodes</text>
+<text x="296" y="316" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">to the core: metadata only</text>
+<text x="296" y="333" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">video analysed in the district</text>
+<text x="296" y="350" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">cached watchlist for outages</text>
+<rect x="282" y="386" width="268" height="120" rx="10" fill="#ECFDF5" stroke="#047857" stroke-width="1.6"/>
+<text x="296" y="412" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">Edge storage · encrypted disk</text>
+<text x="296" y="432" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">plate crops (30 days) · spool</text>
+<text x="296" y="449" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">cached watchlist · local alerts</text>
+<text x="296" y="466" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">full-disk encryption, unlocked</text>
+<text x="296" y="483" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">at boot by the core</text>
+<rect x="604" y="48" width="44" height="492" rx="10" fill="#E0F2FE" stroke="#0369A1" stroke-width="1.6"/>
+<text transform="translate(631,294) rotate(-90)" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#0F172A">Gateway · TLS · WAF · rate limits · SSO + MFA · mTLS</text>
+<rect x="662" y="48" width="274" height="100" rx="10" fill="#E0F2FE" stroke="#0369A1" stroke-width="1.6"/>
+<text x="676" y="74" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">Sentinel API · stateless</text>
+<text x="676" y="94" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">RBAC; dept/district scope in SQL</text>
+<text x="676" y="111" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">every search and action audited</text>
+<rect x="662" y="168" width="131" height="120" rx="10" fill="#ECFDF5" stroke="#047857" stroke-width="1.6"/>
+<text x="676" y="194" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">PostGIS</text>
+<text x="676" y="214" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">TLS only</text>
+<text x="676" y="231" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">encrypted volumes</text>
+<text x="676" y="248" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">sync standby</text>
+<rect x="805" y="168" width="131" height="120" rx="10" fill="#0F172A" stroke="#0F172A" stroke-width="1.6"/>
+<text x="819" y="194" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#FFFFFF">Vault + HSM</text>
+<text x="819" y="214" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#CBD5E1">signing keys</text>
+<text x="819" y="231" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#CBD5E1">camera credentials</text>
+<text x="819" y="248" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#CBD5E1">node certificates</text>
+<text x="819" y="265" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#CBD5E1">disk keys</text>
+<rect x="662" y="308" width="131" height="112" rx="10" fill="#ECFDF5" stroke="#047857" stroke-width="1.6"/>
+<text x="676" y="334" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">Audit log</text>
+<text x="676" y="354" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">append-only</text>
+<text x="676" y="371" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">insert-only role</text>
+<text x="676" y="388" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">→ SIEM, 180 days</text>
+<text x="676" y="405" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">kept in India</text>
+<rect x="805" y="308" width="131" height="112" rx="10" fill="#FEF3C7" stroke="#B45309" stroke-width="1.6"/>
+<text x="819" y="334" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">Adapters</text>
+<text x="819" y="354" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">egress proxy</text>
+<text x="819" y="371" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">read-only accounts</text>
+<text x="819" y="388" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">listed endpoints</text>
+<rect x="662" y="440" width="274" height="100" rx="10" fill="#ECFDF5" stroke="#047857" stroke-width="1.6"/>
+<text x="676" y="466" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">DR site</text>
+<text x="676" y="486" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">asynchronous encrypted replica</text>
+<text x="676" y="503" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">same zones and controls</text>
+<rect x="984" y="48" width="186" height="84" rx="10" fill="#FEF3C7" stroke="#B45309" stroke-width="1.6"/>
+<text x="998" y="74" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">VAHAN · SARTHI</text>
+<text x="998" y="94" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">NIC · read-only lookups</text>
+<rect x="984" y="152" width="186" height="84" rx="10" fill="#FEF3C7" stroke="#B45309" stroke-width="1.6"/>
+<text x="998" y="178" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">eGujCop (CCTNS)</text>
+<text x="998" y="198" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">wanted · missing · BOLO</text>
+<rect x="984" y="256" width="186" height="84" rx="10" fill="#FEF3C7" stroke="#B45309" stroke-width="1.6"/>
+<text x="998" y="282" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">AFIS · NAFIS</text>
+<text x="998" y="302" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">declared; access awaited</text>
+<rect x="984" y="360" width="186" height="110" rx="10" fill="#FEF3C7" stroke="#B45309" stroke-width="1.6"/>
+<text x="998" y="386" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">112 ERSS · SMS</text>
+<text x="998" y="406" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">and e-mail gateways</text>
+<text x="998" y="423" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">alert hand-off</text>
+<text x="998" y="440" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" font-weight="700" fill="#B45309">design · not built</text>
+<rect x="282" y="608" width="360" height="100" rx="10" fill="#FFE4E6" stroke="#BE123C" stroke-width="1.6"/>
+<text x="296" y="634" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">Operator browsers · police network</text>
+<text x="296" y="654" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">HTTPS + WSS to the gateway</text>
+<text x="296" y="671" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">live video straight from the edge relay</text>
+<text x="296" y="688" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">no path to cameras, database or keys</text>
+<rect x="660" y="608" width="276" height="100" rx="10" fill="#FFE4E6" stroke="#BE123C" stroke-width="1.6"/>
+<text x="674" y="634" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="14.5" font-weight="700" fill="#0F172A">Five roles, scoped</text>
+<text x="674" y="654" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">admin · supervisor · operator</text>
+<text x="674" y="671" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">dept nodal officer · auditor</text>
+<text x="674" y="688" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12.5" fill="#475569">searches and actions audited</text>
+<path d="M228,96 L254,96" fill="none" stroke="#0369A1" stroke-width="2.2" marker-end="url(#m-video)" stroke-linejoin="round"/>
+<path d="M228,202 L254,202" fill="none" stroke="#0369A1" stroke-width="2.2" marker-end="url(#m-video)" stroke-linejoin="round"/>
+<path d="M254,84 L254,202" stroke="#0369A1" stroke-width="2.2"/>
+<path d="M254,84 L282,84" fill="none" stroke="#0369A1" stroke-width="2.2" marker-end="url(#m-video)" stroke-linejoin="round"/>
+<path d="M416,120 L416,136" fill="none" stroke="#0369A1" stroke-width="2.2" marker-end="url(#m-video)" stroke-linejoin="round"/>
+<path d="M416,254 L416,270" fill="none" stroke="#0369A1" stroke-width="2.2" marker-end="url(#m-video)" stroke-linejoin="round"/>
+<path d="M416,370 L416,386" fill="none" stroke="#047857" stroke-width="2.2" marker-end="url(#m-meta)" stroke-linejoin="round"/>
+<path d="M550,320 L604,320" fill="none" stroke="#047857" stroke-width="2.2" marker-end="url(#m-meta)" stroke-linejoin="round"/>
+<path d="M550,170 L604,170" fill="none" stroke="#64748B" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#m-control)" stroke-linejoin="round"/>
+<path d="M648,97.2 L662,97.2" fill="none" stroke="#334155" stroke-width="1.5" marker-end="url(#m-plain)" stroke-linejoin="round"/>
+<path d="M727.76,148 L727.5,168" fill="none" stroke="#334155" stroke-width="1.5" marker-end="url(#m-plain)" marker-start="url(#m-plain)" stroke-linejoin="round"/>
+<path d="M870.24,148 L870.5,168" fill="none" stroke="#64748B" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#m-control)" stroke-linejoin="round"/>
+<path d="M936,364 L956,364" fill="none" stroke="#B45309" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#m-ext)" stroke-linejoin="round"/>
+<path d="M956,90 L956,415" stroke="#B45309" stroke-width="1.8" stroke-dasharray="6 4"/>
+<path d="M956,90 L984,90" fill="none" stroke="#B45309" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#m-ext)" stroke-linejoin="round"/>
+<path d="M956,194 L984,194" fill="none" stroke="#B45309" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#m-ext)" stroke-linejoin="round"/>
+<path d="M956,298 L984,298" fill="none" stroke="#B45309" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#m-ext)" stroke-linejoin="round"/>
+<path d="M956,415 L984,415" fill="none" stroke="#B45309" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#m-ext)" stroke-linejoin="round"/>
+<path d="M550,236.3 L560,236.3 L560,608" fill="none" stroke="#0369A1" stroke-width="2.2" marker-end="url(#m-video)" stroke-linejoin="round"/>
+<path d="M626,540 L626,608" fill="none" stroke="#DC2626" stroke-width="2.2" marker-end="url(#m-alert)" marker-start="url(#m-alert)" stroke-linejoin="round"/>
+<rect x="219.65" y="139.5" width="68.69999999999999" height="21" rx="4" fill="#FFFFFF" fill-opacity="0.94"/>
+<text x="254" y="154.5" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="11.5" font-weight="600" fill="#0369A1">RTSP pull</text>
+<rect x="565.4" y="294.5" width="37.2" height="21" rx="4" fill="#FFFFFF" fill-opacity="0.94"/>
+<text x="584" y="309.5" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="11.5" font-weight="600" fill="#047857">mTLS</text>
+<rect x="549.65" y="144.5" width="68.69999999999999" height="21" rx="4" fill="#FFFFFF" fill-opacity="0.94"/>
+<text x="584" y="159.5" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="11.5" font-weight="600" fill="#64748B">auth hook</text>
+<rect x="902.75" y="131.5" width="106.5" height="21" rx="4" fill="#FFFFFF" fill-opacity="0.94"/>
+<text x="956" y="146.5" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="11.5" font-weight="600" fill="#B45309">TLS · read-only</text>
+<rect x="466.4" y="551.5" width="87.6" height="21" rx="4" fill="#FFFFFF" fill-opacity="0.94"/>
+<text x="510.2" y="566.5" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="11.5" font-weight="600" fill="#0369A1">WebRTC · HLS</text>
+<rect x="632" y="551.5" width="81.3" height="21" rx="4" fill="#FFFFFF" fill-opacity="0.94"/>
+<text x="672.65" y="566.5" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="11.5" font-weight="600" fill="#DC2626">HTTPS · WSS</text>
+<text x="24" y="600" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="11" font-weight="700" letter-spacing="1" fill="#64748B">LEGEND</text>
+<path d="M24,618 L50,618" stroke="#0369A1" stroke-width="2.2" marker-end="url(#m-video)"/>
+<text x="60" y="622" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12" fill="#334155">Video</text>
+<path d="M24,638 L50,638" stroke="#047857" stroke-width="2.2" marker-end="url(#m-meta)"/>
+<text x="60" y="642" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12" fill="#334155">Metadata</text>
+<path d="M24,658 L50,658" stroke="#DC2626" stroke-width="2.2" marker-end="url(#m-alert)"/>
+<text x="60" y="662" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12" fill="#334155">UI and alerts</text>
+<path d="M24,678 L50,678" stroke="#B45309" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#m-ext)"/>
+<text x="60" y="682" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12" fill="#334155">Govt integration</text>
+<path d="M24,698 L50,698" stroke="#64748B" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#m-control)"/>
+<text x="60" y="702" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12" fill="#334155">Control plane, keys</text>
+<rect x="24" y="711" width="26" height="14" rx="3" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.4" stroke-dasharray="4 3"/>
+<text x="60" y="722" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="12" fill="#334155">Existing infra</text>
+<text x="24" y="752" text-anchor="start" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#334155">Target design. The PoC runs every zone on one laptop over plain HTTP, with one shared ingest key and one HS256 secret: HLD 11.4 says what is built and what is not.</text>
+</svg>

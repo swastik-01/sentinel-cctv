@@ -1,0 +1,41 @@
+[project]
+name = "sentinel-analytics"
+version = "0.1.0"
+description = "GPU analytics worker: RTSP ingest, vehicle/plate detection, OCR, tracking"
+requires-python = ">=3.12"
+dependencies = [
+  "torch>=2.4",
+  "torchvision>=0.19",
+  "ultralytics>=8.3",
+  "numpy>=1.26,<3",
+  "httpx>=0.28",
+  "pyyaml>=6.0",
+  "pydantic>=2.9",
+  "pydantic-settings>=2.6",
+  "fast-plate-ocr[onnx]>=1.0",
+  "huggingface_hub>=0.25",
+  "psutil>=5.9",
+  "sentinel-common",
+  "av>=14",
+]
+
+[project.scripts]
+sentinel-worker = "sentinel_analytics.worker:main"
+sentinel-bench = "sentinel_analytics.bench:main"
+sentinel-counts = "sentinel_analytics.counts:main"
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu124" }
+torchvision = { index = "pytorch-cu124" }
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["sentinel_analytics"]

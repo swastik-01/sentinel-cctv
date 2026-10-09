@@ -1,0 +1,91 @@
+name: sentinel
+
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    restart: unless-stopped   # the core comes back with Docker after a reboot (it stayed down on 7 Oct)
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports: ["127.0.0.1:${POSTGRES_PORT:-5432}:5432"]   # this host only: nothing remote needs the database
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./infra/postgres/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    command: >
+      postgres -c shared_buffers=256MB -c max_connections=100
+               -c log_min_duration_statement=500
+
+  # Valkey: BSD-licensed, Redis-protocol compatible. (Redis 7.4 is RSAL/SSPL; Redis 8 added AGPL-3.0, which is copyleft.)
+  valkey:
+    image: valkey/valkey:8-alpine
+    command: ["valkey-server", "--save", "", "--appendonly", "no", "--maxmemory", "256mb",
+              "--maxmemory-policy", "allkeys-lru"]
+    restart: unless-stopped
+    ports: ["127.0.0.1:6379:6379"]                      # this host only: the bus is internal
+
+  # Media server: ingests RTSP from cameras/simulator, fans out RTSP + WHEP + HLS.
+  mediamtx:
+    # ffmpeg for on-demand preview transcodes. Pinned by digest (the image of 5 Sep 2026): auth and WebRTC keys
+    # have changed across MediaMTX releases, and a `docker compose pull` the day before a demo must not swap it.
+    image: bluenviron/mediamtx:latest-ffmpeg@sha256:9d148b5f29906618dee627ea3232c75d4ed60da8d40a3ad7276ca87c1ec4f19e
+    restart: unless-stopped
+    ports:
+      - "8554:8554"        # RTSP  (inference workers)
+      - "8889:8889"        # WebRTC / WHEP (browser preview)
+      - "8189:8189/udp"    # WebRTC ICE
+      - "8888:8888"        # HLS   (dashboards, mobile)
+      - "127.0.0.1:9997:9997"   # control API: this host only (it returns camera source URLs)
+      - "127.0.0.1:9998:9998"   # prometheus metrics: this host only
+    volumes:
+      - ./infra/mediamtx.yml:/mediamtx.yml:ro
+    environment:
+      MTX_WEBRTCADDITIONALHOSTS: ${WEBRTC_HOST:-127.0.0.1}
+      MTX_AUTHINTERNALUSERS_3_PASS: ${MEDIAMTX_PUBLISH_PASS:-dev_publish_key_replace_me}   # the publisher credential
+
+  # --- Feed simulator: mirrors the hackathon sandbox contract -------------
+  feedsim-synth:
+    build: ./feedsim
+    profiles: ["tools"]
+    command: ["python", "synth.py"]
+    volumes:
+      - ./feedsim/media:/app/media
+      - ./feedsim/cameras.yaml:/app/cameras.yaml:ro
+
+  feedsim-publisher:
+    build: ./feedsim
+    command: ["python", "publisher.py"]
+    depends_on: [mediamtx]
+    restart: unless-stopped
+    volumes:
+      - ./feedsim/media:/app/media:ro
+      - ./feedsim/cameras.yaml:/app/cameras.yaml:ro
+      - feedsim-state:/state
+    environment:
+      MEDIAMTX_RTSP: rtsp://publisher:${MEDIAMTX_PUBLISH_PASS:-dev_publish_key_replace_me}@mediamtx:8554
+      STATE_DIR: /state
+
+  feedsim-catalogue:
+    build: ./feedsim
+    command: ["uvicorn", "catalogue:app", "--host", "0.0.0.0", "--port", "8010"]
+    depends_on: [mediamtx]
+    restart: unless-stopped
+    # This host only: its outage control (POST /admin/outage/<code>) has no auth, so on a LAN anyone could take
+    # every simulator camera down. The API reaches it at localhost; a remote control room only loses that button.
+    ports: ["127.0.0.1:8010:8010"]
+    volumes:
+      - ./feedsim/cameras.yaml:/app/cameras.yaml:ro
+      - feedsim-state:/state
+    environment:
+      MEDIAMTX_API: http://mediamtx:9997
+      PUBLIC_HOST: ${PUBLIC_HOST:-localhost}
+      STATE_DIR: /state
+
+volumes:
+  pgdata:
+  feedsim-state:

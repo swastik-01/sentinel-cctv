@@ -1,0 +1,90 @@
+# MediaMTX configuration for Sentinel.
+# Any key here can be overridden with MTX_<UPPERCASE_KEY> environment variables.
+logLevel: info
+
+api: yes
+apiAddress: :9997
+metrics: yes
+metricsAddress: :9998
+
+# RTSP: what cameras/simulators publish to, and what inference workers read from.
+# Workers force TCP client-side (sandbox rule); the server accepts both.
+rtsp: yes
+rtspAddress: :8554
+
+# HLS: dashboards and mobile. alwaysRemux keeps playlists warm without readers.
+hls: yes
+hlsAddress: :8888
+hlsVariant: lowLatency
+hlsAlwaysRemux: no      # mux HLS only while someone is requesting it
+hlsSegmentCount: 7
+hlsSegmentDuration: 1s
+
+# WebRTC / WHEP: sub-second browser preview for the video wall.
+webrtc: yes
+webrtcAddress: :8889
+webrtcLocalUDPAddress: :8189
+webrtcIPsFromInterfaces: yes
+webrtcAdditionalHosts: []
+
+# Auth. Viewing (read/playback) is open to the network in the PoC: per-camera viewing
+# authorisation is the relay auth hook on the roadmap (authMethod: http, authHTTPAddress
+# pointing at the Sentinel API, so platform RBAC decides who may read which camera).
+# Publishing needs the publisher credential from any address except loopback. Source
+# addresses alone cannot protect it: Docker Desktop hands LAN connections to this container
+# from the same private range as the host's, so a LAN client passed the old address rule
+# (scripts/security_checks.py tests this from the LAN address).
+# The control API (it returns source URLs, credentials included) and metrics are allowed only
+# from this host and the Docker network, and docker-compose.yml binds their ports to 127.0.0.1.
+# Entry order matters: MTX_AUTHINTERNALUSERS_3_PASS (docker-compose.yml) sets the fourth
+# entry's password.
+authMethod: internal
+authInternalUsers:
+  - user: any
+    pass:
+    ips: []
+    permissions:
+      - action: read
+      - action: playback
+  # On-demand previews below: ffmpeg inside this container publishes over loopback.
+  - user: any
+    pass:
+    ips: ["127.0.0.1/32", "::1/128"]
+    permissions:
+      - action: publish
+  - user: any
+    pass:
+    ips: ["127.0.0.1/32", "::1/128", "172.16.0.0/12", "192.168.65.0/24"]
+    permissions:
+      - action: api
+      - action: metrics
+  # Anything that pushes a stream in: the simulator, or a department encoder that can only push.
+  - user: publisher
+    pass: dev_publish_key_replace_me
+    ips: []
+    permissions:
+      - action: publish
+
+paths:
+  # Browser preview profile for cameras whose main stream browsers cannot decode (H.265), and the
+  # player's fallback when a stream connects but shows nothing (B-frames, heavy packet loss).
+  # Transcoded ON DEMAND: ffmpeg starts when the first viewer connects and stops shortly
+  # after the last one leaves, so an unwatched camera costs no CPU. Real IP cameras
+  # usually expose this as a second ONVIF profile; this is the fallback for those that don't.
+  # On a lossy source ffmpeg waits up to 20 s of stream for a picture size, drops corrupt packets and
+  # decodes past errors: on the organisers' sandbox it then started 8 of 9 times against 6 of 9
+  # (bench/results/preview_start.md, 9 Oct).
+  "~^(.+)_sub$":
+    runOnDemand: >-
+      ffmpeg -hide_banner -loglevel error -rtsp_transport tcp -analyzeduration 20000000 -probesize 20000000
+      -fflags +discardcorrupt -err_detect ignore_err -i rtsp://localhost:$RTSP_PORT/$G1
+      -vf scale=640:-2,fps=8 -c:v libx264 -preset ultrafast -tune zerolatency -profile:v baseline
+      -g 16 -bf 0 -an -f rtsp -rtsp_transport tcp rtsp://localhost:$RTSP_PORT/$MTX_PATH
+    runOnDemandRestart: yes
+    runOnDemandStartTimeout: 20s
+    runOnDemandCloseAfter: 20s
+
+  all_others:
+    # A path already being published (the simulator's, or a department encoder's) is not taken over by a second
+    # publisher with the credential: the picture a camera shows cannot be replaced from the LAN.
+    overridePublisher: no

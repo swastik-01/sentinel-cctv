@@ -1,0 +1,5 @@
+camera_code,camera_name,department,frames_analysed,last_window_ist,person_avg_in_view,car_avg_in_view,motorcycle_avg_in_view,bus_avg_in_view,truck_avg_in_view,bicycle_avg_in_view,person_peak,car_peak,motorcycle_peak,bus_peak,truck_peak,bicycle_peak
+AMD-AMC-001,"Income Tax Circle, Ashram Road",MUNI,2221,2026-09-24 01:38:30,0,0,0,0,0,0,0,0,0,0,0,0
+AMD-POL-001,Sarkhej-Gandhinagar Highway Toll Approach,HOME,2233,2026-09-24 01:38:30,0,0,0,0,0,0,0,0,0,0,0,0
+AMD-TRAF-001,"Ashram Road Junction, Ahmedabad (stock traffic footage)",HOME,2226,2026-09-24 01:38:30,2.08,9.23,2.16,0.61,1.1,0,7,14,8,4,4,0
+AMD-TRAF-002,"Paldi Char Rasta, Ahmedabad (stock traffic footage)",HOME,2239,2026-09-24 01:38:30,1.46,2.68,0.78,0.06,0.32,0,9,9,8,2,2,0

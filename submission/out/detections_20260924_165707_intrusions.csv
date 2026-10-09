@@ -1,0 +1,5 @@
+event_time_ist,camera_code,camera_name,zone_id,zone_name,in_zone,peak_count,first_seen_ist,dwell_s,severity,status,alert_raised_ist
+2026-09-24 01:30:27,AMD-TRAF-001,"Ashram Road Junction, Ahmedabad (stock traffic footage)",kerb-demo,Demo: kerb strip (simulated restricted area),person ×2,2,2026-09-24 01:30:24,3.0,high,new,2026-09-24 01:30:27
+2026-09-24 01:32:30,AMD-TRAF-001,"Ashram Road Junction, Ahmedabad (stock traffic footage)",kerb-demo,Demo: kerb strip (simulated restricted area),person ×1,1,2026-09-24 01:32:27,3.0,high,new,2026-09-24 01:32:30
+2026-09-24 01:35:30,AMD-TRAF-001,"Ashram Road Junction, Ahmedabad (stock traffic footage)",kerb-demo,Demo: kerb strip (simulated restricted area),person ×1,1,2026-09-24 01:35:27,3.2,high,new,2026-09-24 01:35:30
+2026-09-24 01:38:27,AMD-TRAF-001,"Ashram Road Junction, Ahmedabad (stock traffic footage)",kerb-demo,Demo: kerb strip (simulated restricted area),person ×2,2,2026-09-24 01:38:24,3.0,high,new,2026-09-24 01:38:27

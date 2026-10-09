@@ -1,0 +1,126 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Sentinel — leave-behind</title><style>
+@page { size: A4; margin: 16mm 15mm 14mm; }
+@page :first { margin: 0; }
+* { box-sizing: border-box; }
+body { font: 10.4pt/1.5 "Segoe UI", Arial, sans-serif; color: #0f172a; margin: 0; }
+.cover { height: 297mm; padding: 38mm 22mm 20mm; background: #0b1220; color: #fff; display: flex; flex-direction: column; page-break-after: always; }
+.cover .mark { width: 46px; height: 46px; border-radius: 11px; background: linear-gradient(135deg,#38bdf8,#6366f1); display: grid; place-items: center; font-weight: 800; font-size: 24px; margin-bottom: 28px; }
+.cover h1 { font-size: 34pt; line-height: 1.1; margin: 0 0 14px; font-weight: 700; color: #fff; }
+.cover .sub { font-size: 15pt; color: #cbd5e1; max-width: 150mm; }
+.cover .meta { margin-top: auto; font-size: 10.5pt; color: #94a3b8; border-top: 1px solid #1e293b; padding-top: 12px; }
+.cover .meta b { color: #e2e8f0; font-weight: 600; }
+.toc { margin-bottom: 18px; padding: 10px 14px 4px; background: #f1f5f9; border-radius: 8px; }
+.toc h2 { margin: 0 0 4px; font-size: 12pt; }
+.toc ol { padding-left: 18px; columns: 2; column-gap: 24px; margin: 4px 0 8px; font-size: 9.6pt; } .toc li { margin: 1px 0; }
+h1, h2, h3 { color: #0b1220; line-height: 1.25; }
+h2 { font-size: 16pt; margin: 22px 0 8px; padding-top: 4px; page-break-after: avoid; }
+h3 { font-size: 12pt; margin: 16px 0 6px; page-break-after: avoid; }
+p, li { orphans: 3; widows: 3; }
+ul, ol { padding-left: 20px; } li { margin: 2px 0; }
+code { font-family: Consolas, "Courier New", monospace; font-size: 9.2pt; background: #f1f5f9; padding: 0 3px; border-radius: 3px; }
+pre { background: #0f172a; color: #e2e8f0; padding: 10px 12px; border-radius: 6px; font-size: 8.4pt; line-height: 1.35; overflow: hidden; page-break-inside: avoid; }
+pre code { background: none; color: inherit; padding: 0; }
+table { width: 100%; border-collapse: collapse; margin: 8px 0 12px; font-size: 9.2pt; page-break-inside: avoid; }
+tr { page-break-inside: avoid; }
+th { background: #0f172a; color: #fff; text-align: left; font-weight: 600; padding: 5px 7px; }
+td { padding: 4px 7px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tbody tr:nth-child(even) td { background: #f8fafc; }
+figure { margin: 10px 0 14px; page-break-inside: avoid; }
+figure img { width: 100%; border: 1px solid #e2e8f0; border-radius: 6px; }
+figcaption { font-size: 8.8pt; color: #475569; margin-top: 4px; }
+figcaption b { color: #0f172a; }
+strong { color: #0b1220; }
+blockquote { margin: 8px 0; padding: 6px 12px; background: #f1f5f9; border-radius: 6px; color: #334155; }
+hr { border: none; border-top: 1px solid #e2e8f0; margin: 16px 0; }
+
+@page :first { margin: 14mm 15mm 12mm; }
+body { font-size: 9.3pt; line-height: 1.4; }
+h1 { font-size: 20pt; margin: 0 0 2px; }
+.lb-head { color: #475569; font-size: 9.5pt; margin: 0 0 8px; padding-bottom: 6px; border-bottom: 2px solid #0b1220; }
+.gu { font-family: "Nirmala UI", "Shruti", "Noto Sans Gujarati", "Segoe UI", sans-serif; font-weight: 600; color: #0b1220; font-size: 10.5pt; }
+h2 { font-size: 12.5pt; margin: 10px 0 4px; }
+table { font-size: 8.6pt; margin: 4px 0 6px; } th, td { padding: 3px 6px; }
+figure { margin: 4px auto 6px; width: 92%; } figure img { width: 100%; }
+ul { margin: 2px 0; } li { margin: 1px 0; }
+</style></head><body>
+
+
+<main><h1 id="h-0">Sentinel — &lt;TEAM NAME&gt;</h1><p class="lb-head"><span class="gu">સેન્ટિનલ — ગુજરાત પોલીસ માટે</span> · Gujarat Police Innovation Challenge 2026 · Grand finale, i-Hub Gandhinagar, 12–13 October 2026</p>
+
+<p><strong>What Sentinel is.</strong> One registry, one map and one viewer for Gujarat&#39;s government cameras, with plate reading where a camera&#39;s view allows it and vehicle and person counts everywhere else.
+It is Model 2 (unified viewing and selective analytics) on the mandatory Model 1 foundation (registry and GIS): it connects to cameras, recorders and VMS re-streams directly, installs nothing on a department&#39;s side and replaces nothing.
+Video stays with the departments; only metadata (plate reads, counts, alerts) crosses the network, and every search and operator action is audited. No facial recognition, by design.</p>
+<h2 id="h-0">The live test, step by step</h2><table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What the judges see</th>
+<th>Where in Sentinel</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Onboard</strong></td>
+<td>A government camera onboarded live from its stream address: probe → relay → register, about 2 s; the rest as a batch</td>
+<td>Registry → <em>Add camera by stream URL</em>; <code>scripts/onboard_urls.py</code></td>
+</tr>
+<tr>
+<td><strong>View</strong></td>
+<td>Every camera on one map and one video wall, H.264 and H.265 alike; Health grades each camera&#39;s plate-reading quality and says what would improve it</td>
+<td>Map · Video wall · Health &amp; Reports</td>
+</tr>
+<tr>
+<td><strong>Read</strong></td>
+<td>Plate reads with vehicle type and colour; vehicle and person counts per camera per minute, on every camera at once</td>
+<td>Overview · Health &amp; Reports</td>
+</tr>
+<tr>
+<td><strong>Alert</strong></td>
+<td>A watchlist entry raises a live alert with its evidence crop about a second after the first read; near misses labelled; a read below confidence 0.9 says &quot;check the crop&quot;</td>
+<td>Watchlist · Alerts</td>
+</tr>
+<tr>
+<td><strong>Trace</strong></td>
+<td>The registration given on the spot: a 24-hour look-back with one retrospective alert, then its journey as stops and legs, near misses marked, implausible legs flagged</td>
+<td>Vehicle search → journey view</td>
+</tr>
+<tr>
+<td><strong>Report</strong></td>
+<td>Detected plates with timestamps as PDF and CSV (a SHA-256 per crop); the session&#39;s audit trail</td>
+<td><code>scripts/detection_report.py</code> · Audit</td>
+</tr>
+</tbody></table>
+<h2 id="h-1">Four numbers, with their conditions</h2><table>
+<thead>
+<tr>
+<th>Number</th>
+<th>Condition</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>30 of 30</strong> government cameras onboarded, 1.0–2.2 s each</td>
+<td>The organisers&#39; sandbox, 25 Sep 2026, by RTSP address; H.264 and H.265, 960×576 to 2560×1440; all 30 viewed and counted, 4 at a time in rotation on one laptop (<code>bench/results/sandbox.md</code>)</td>
+</tr>
+<tr>
+<td><strong>90 of 120</strong> real Gujarat plates stored exactly right (75.0%); 107 within one character</td>
+<td>Blind check by one team member on the Plate review page, 26 Sep, on the 2 of 30 views where plates are readable (CAM06, CAM07). Precision on stored reads only: capture on real plates is unmeasured. At Sentinel&#39;s confidence ≥ 0.9, 69 of 81 exact (<code>sandbox_review.md</code>). On stock footage with synthetic plates: 96.8% exact, 91.2% capture (<code>anpr_eval_current.md</code>)</td>
+</tr>
+<tr>
+<td><strong>1.06 s</strong> median from the first read of a vehicle to its alert (p95 1.94 s)</td>
+<td>31 alerts, 4 cameras, worker and API on one laptop and one clock, 24 Sep; excludes camera transport and the browser (<code>latency.md</code>)</td>
+</tr>
+<tr>
+<td><strong>40 streams</strong> counted at once on one laptop at 2.46 CPU cores, GPU 13% busy</td>
+<td>Counts-only worker from keyframes, 0.78 frame/s per stream, 7 Oct; no plate worker running at the same time; 50 streams saturate; count accuracy unmeasured (<code>counts_capacity.md</code>)</td>
+</tr>
+</tbody></table>
+<h2 id="h-2">Architecture</h2><figure><img src="file:///D:/GP/docs/diagrams/d1-architecture.svg" alt=""><figcaption><b>Figure 1.</b> Department estates untouched; district edges relay and analyse; only metadata reaches the state core.</figcaption></figure>
+<p>Sized for 80,000 cameras by a capacity model (<code>bench/capacity.py</code>, Plan for Scale): 248 edge GPU nodes, about 2.7 Mbps of metadata statewide against 320 Gbps to carry every stream centrally, ₹100.7 crore over five years (₹210 per camera per month).
+Tier shares, streams per node and unit prices are assumptions, labelled as such; the pilot measures them. The core was run at statewide size on one laptop: 706 sightings a second matched against 100,000 watchlist entries, a floor, not a sizing (<code>core_scale.md</code>).</p>
+<h2 id="h-3">Said plainly</h2><ul>
+<li><strong>VAHAN and eGujCop are mock adapters</strong> over fixture files behind one adapter contract; SARTHI, AFIS and NAFIS are declared, awaiting access.</li>
+<li><strong>Plates are read on 2 of the 30 sandbox views.</strong> The other 28 are overview or red-light views where plates are too small; they are counted, and the Health page says what would make them readable (zoom, shutter, infrared, re-aim). The grade describes the camera; it does not predict whether a given read is right.</li>
+<li><strong>People are counted, never identified.</strong> An intrusion alert holds the zone, the count and the dwell, never a box, image or track.</li>
+<li><strong>Since the submission (26 Sep → 10 Oct):</strong> the counts-only worker and the two-laptop set-up were built and measured; the &quot;check the crop&quot; confidence marking passed its pre-registered gate on 8 Oct and is on; the OCR fine-tune was non-inferior on real plates and not adopted; the YOLOX detectors were not trained (the pilot&#39;s plan). Every accuracy, capture and latency figure above still describes the build that runs.</li>
+</ul>
+<h2 id="h-4">Contacts</h2><p>&lt;TEAM NAME&gt; · &lt;name, role, phone, email&gt; · &lt;name, role, phone, email&gt; · Documents: HLD, Plan for Scale, privacy note, demo videos, <code>bench/results/</code> (every figure&#39;s conditions)</p>
+</main></body></html>

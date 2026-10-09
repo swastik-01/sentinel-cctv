@@ -1,0 +1,299 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Sentinel — Privacy and Proportionality</title><style>
+@page { size: A4; margin: 16mm 15mm 14mm; }
+@page :first { margin: 0; }
+* { box-sizing: border-box; }
+body { font: 10.4pt/1.5 "Segoe UI", Arial, sans-serif; color: #0f172a; margin: 0; }
+.cover { height: 297mm; padding: 38mm 22mm 20mm; background: #0b1220; color: #fff; display: flex; flex-direction: column; page-break-after: always; }
+.cover .mark { width: 46px; height: 46px; border-radius: 11px; background: linear-gradient(135deg,#38bdf8,#6366f1); display: grid; place-items: center; font-weight: 800; font-size: 24px; margin-bottom: 28px; }
+.cover h1 { font-size: 34pt; line-height: 1.1; margin: 0 0 14px; font-weight: 700; color: #fff; }
+.cover .sub { font-size: 15pt; color: #cbd5e1; max-width: 150mm; }
+.cover .meta { margin-top: auto; font-size: 10.5pt; color: #94a3b8; border-top: 1px solid #1e293b; padding-top: 12px; }
+.cover .meta b { color: #e2e8f0; font-weight: 600; }
+.toc { margin-bottom: 18px; padding: 10px 14px 4px; background: #f1f5f9; border-radius: 8px; }
+.toc h2 { margin: 0 0 4px; font-size: 12pt; }
+.toc ol { padding-left: 18px; columns: 2; column-gap: 24px; margin: 4px 0 8px; font-size: 9.6pt; } .toc li { margin: 1px 0; }
+h1, h2, h3 { color: #0b1220; line-height: 1.25; }
+h2 { font-size: 16pt; margin: 22px 0 8px; padding-top: 4px; page-break-after: avoid; }
+h3 { font-size: 12pt; margin: 16px 0 6px; page-break-after: avoid; }
+p, li { orphans: 3; widows: 3; }
+ul, ol { padding-left: 20px; } li { margin: 2px 0; }
+code { font-family: Consolas, "Courier New", monospace; font-size: 9.2pt; background: #f1f5f9; padding: 0 3px; border-radius: 3px; }
+pre { background: #0f172a; color: #e2e8f0; padding: 10px 12px; border-radius: 6px; font-size: 8.4pt; line-height: 1.35; overflow: hidden; page-break-inside: avoid; }
+pre code { background: none; color: inherit; padding: 0; }
+table { width: 100%; border-collapse: collapse; margin: 8px 0 12px; font-size: 9.2pt; page-break-inside: avoid; }
+tr { page-break-inside: avoid; }
+th { background: #0f172a; color: #fff; text-align: left; font-weight: 600; padding: 5px 7px; }
+td { padding: 4px 7px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tbody tr:nth-child(even) td { background: #f8fafc; }
+figure { margin: 10px 0 14px; page-break-inside: avoid; }
+figure img { width: 100%; border: 1px solid #e2e8f0; border-radius: 6px; }
+figcaption { font-size: 8.8pt; color: #475569; margin-top: 4px; }
+figcaption b { color: #0f172a; }
+strong { color: #0b1220; }
+blockquote { margin: 8px 0; padding: 6px 12px; background: #f1f5f9; border-radius: 6px; color: #334155; }
+hr { border: none; border-top: 1px solid #e2e8f0; margin: 16px 0; }
+</style></head><body>
+<section class="cover"><div class="mark">S</div><h1>Sentinel — Privacy and Proportionality</h1><div class="sub">Design position under the DPDP Act, 2023</div>
+<div class="meta"><b>Supporting note · Gujarat Police Innovation Challenge 2026</b><br>1.3 · 8 October 2026<br>Repository: Sentinel · all figures generated from the running system and its benchmark</div></section>
+<section class="toc"><h2>Contents</h2><ol><li>No face recognition — by design, not by omission</li><li>Data minimisation</li><li>Purpose limitation and audit</li><li>Role-based and departmental scoping</li><li>Watchlists are sourced, not typed</li><li>Public-facing private cameras</li><li>What this does not solve</li></ol></section>
+<main><p>Sentinel processes video of the public on behalf of the state. That is lawful for law enforcement
+purposes, and it is also exactly the kind of processing where design choices, not policy documents,
+determine whether the system is defensible. This note records the choices.</p>
+<h2 id="h-0">1. No face recognition — by design, not by omission</h2><p>The platform does <strong>not</strong> implement facial recognition, and the flag <code>ENABLE_FACE_RECOGNITION</code>
+exists only so the choice is visible in configuration. Detecting that a person is present is not
+recognising who they are: Sentinel does the first (a box that becomes a number and is then
+discarded, section 2.1, or a note that someone is inside an area an operator has marked, section
+2.2) and does not do the second. Reasons:</p>
+<ul>
+<li><strong>Proportionality.</strong> Vehicle-based tracking answers the operational questions in the problem
+statement (stolen vehicles, BOLO, movement history) without identifying anyone. Where the platform
+detects people it only <em>counts</em> them, or records that someone is inside a drawn zone. No face is
+matched, no body or gait signature is stored, no person is tracked within or across cameras, and
+no image of a person is retained.</li>
+<li><strong>Accuracy is uneven across demographics</strong> in published evaluations, and a false match in a
+policing context has consequences a false plate read does not.</li>
+<li><strong>DPDP Act 2023</strong> treats biometric identifiers as sensitive. Wide-area biometric matching of
+people who are not suspects is hard to justify under purpose limitation and data minimisation.</li>
+</ul>
+<p>Wanted and missing persons are still supported: watchlist entries of those kinds match on an
+associated vehicle registration, which is how such alerts are operationalised today.</p>
+<h2 id="h-1">2. Data minimisation</h2><ul>
+<li>Analytics workers store <strong>metadata</strong>, not footage: plate text, timestamp, camera, a small plate
+crop for evidence; for vehicle and person detection, a count per class per camera per minute; for
+an intrusion zone, the zone, how many and for how long. Video stays on the department&#39;s own
+recorder under its own retention. A plate crop is the only pixel data the platform keeps, because
+a registration number is the only thing an investigator needs to verify by eye.</li>
+<li>Plate crops are files on the analysing node&#39;s disk, named in the sighting. The API serves one
+only to a signed-in user who holds the search or alert permission (or the review permission, on the
+plate review page, 2.5), and only for a camera inside that user&#39;s department or district; a crop outside the user&#39;s scope answers &quot;not found&quot;, because
+its existence is itself information. <code>scripts/security_checks.py</code> tests a missing token, a missing
+permission and a path outside the crop store. Full frames are referenced by URI only if the source
+system supports it, and are never copied into the platform by default.</li>
+<li>Sightings and count rows are partitioned by month, so retention is a partition drop, not a
+row-by-row delete. <strong>In the proof of concept retention is manual:</strong> no scheduled job drops
+partitions yet, dropping one would not delete the crop files its rows point to, deleting a camera
+removes its sighting rows (the database cascades) but leaves its crop files on disk until someone
+removes them, and alerts (plate and intrusion) sit in one table that is not partitioned. Dropping a
+month&#39;s partitions and that month&#39;s crops together, on the period the Home Department sets (section
+7), and removing a deleted camera&#39;s crops with it, are design.</li>
+<li>Two columns added to each sighting on 8 Oct, <code>reads</code> (how many reads stood behind the stored plate)
+and <code>agreement</code> (how far the vote agreed, 0–1), are a count and a share: no new personal data. The
+&quot;check the crop&quot; mark they support (HLD 7.5: a read below confidence 0.9, or a watchlist alert on a
+one-character match) is computed from the stored confidence when a sighting is read, not stored, and
+suppresses nothing.</li>
+</ul>
+<h3 id="h-2">2.1 Vehicle and person counting</h3><p><strong>Purpose.</strong> Control-room situational awareness: congestion at junctions, crowding at bus depots,
+hospital entrances and event venues, and deciding where to send traffic or patrol staff. These are
+questions about how many, never about who.</p>
+<p><strong>What is stored.</strong> One row per camera per minute: how many frames were analysed, and per class
+(person, car, motorcycle, bus, truck, bicycle) the number of detections and the most seen in one
+frame. No bounding box, no image, no track identity and no label linking a count to anyone. A person
+detection exists in worker memory for one frame and is then a number. The smoke test checks that
+no count row carries a box, track or label. The counts-only worker (HLD 5.4), which since 7 Oct counts
+most cameras from their keyframes at about one frame a second, writes the same row plus a note of how
+the camera was sampled (<code>profile</code>), and nothing else.</p>
+<p><strong>What it is never used for.</strong> Person detections do not feed the watchlist, plate alerts or any
+search. There is no endpoint that lists individual detections, only aggregates. The one other use
+of the same boxes is the intrusion zone (2.2), which asks only whether someone is inside an area.</p>
+<p><strong>Low counts.</strong> At a quiet gate, &quot;1 person, 02:14&quot; with a camera and a timestamp is closer to a
+presence signal than a junction&#39;s count is. The mitigations are structural: counts are per minute,
+not per frame; counting runs only on cameras where analytics is switched on in the registry (a
+per-camera flag, the Registry&#39;s <em>Analyse</em> box, so a <code>private_shared</code> feed is not counted unless the
+department chooses to); reading counts needs <code>reports.read</code>; and counts go when their monthly
+partition is dropped (manual in the PoC, section 2).</p>
+<p><strong>Vehicle type and colour</strong> are written onto the plate sighting they describe, so they inherit that
+sighting&#39;s retention, scoping and audit. Colour is a heuristic, left blank when unsure. Neither can
+be verified from the retained evidence, because the kept crop is the plate, not the vehicle, and
+the report says so.</p>
+<h3 id="h-2">2.2 Intrusion zones</h3><p><strong>Purpose.</strong> Areas that should be empty at certain hours: a depot yard at night, a perimeter, a
+closed gate. The question is whether someone is there, never who.</p>
+<p><strong>What triggers it.</strong> A user who may edit the camera draws a polygon on its live picture (Video
+wall → <em>zones</em>), chooses the classes that count (person by default; vehicle classes can be added),
+a minimum dwell (3 s by default), optional armed hours in IST (outside them the zone is ignored) and
+a severity. The worker tests the boxes the object detector already produces for the counts: a box
+is inside when its ground point (the bottom centre, where a person stands) lies inside the polygon.
+Presence for the dwell time, while armed, raises one event per occupancy, and the API turns it into
+an alert at most once per zone per camera per 120 s. Identity is never an input.</p>
+<p><strong>What is stored.</strong> The zone lives in the camera&#39;s registry record (its tags), and every change is
+audited (<code>camera.zones</code>, section 3). The event and its alert hold the zone, the classes and how many of each
+were inside at most, the dwell, when the occupancy began and when the alert condition was met, and
+the severity. No box, crop, frame or track of the person is stored or sent: the event leaves the
+worker without them. Checked in the database on 24 Sep 2026: none of the 33 intrusion rows stored up
+to then carried a box or a track id.</p>
+<p><strong>Seeing who it is.</strong> The alert card links to the camera&#39;s live view. The operator looks at the
+live picture, as after a phone call; nothing about the person enters the platform. Live views are
+not yet audited one by one (section 3).</p>
+<p><strong>Where it runs.</strong> Only on cameras that are analysed with object detection on; the worker reads the
+zones when it starts. A zone over a public footpath, armed all day, would turn presence detection
+into monitoring of passers-by. Zones belong on areas that are restricted at the hours they are armed.
+That is a supervisory decision, and the audit trail records who made it.</p>
+<p><strong>What was measured.</strong> One demonstration zone on one clip: a kerb strip marked as a simulated
+restricted area on <code>AMD-TRAF-001</code>, Pexels stock footage looping every 60 s. Over 15 minutes it
+raised 14 events, one per loop, each with one or two people inside the zone, and 6 alerts after the
+120 s cooldown. An offline replay of one loop gave 1 event; its saved frame shows a pedestrian inside the zone;
+motorcycle riders on the carriageway beside it did not trigger it. That shows the mechanism end to
+end. It is not a false-alarm rate.</p>
+<h3 id="h-2">2.3 Data held at the edge during an outage</h3><p>When the link from an analytics node to the core is down, the node keeps analysing and holds what
+it needs on its own disk, in three places under <code>data/spool/&lt;worker id&gt;/</code> (one folder per worker
+process since 8 Oct, so a plate worker and a counts-only worker on one machine never replay each
+other&#39;s files). Each holds less than the database does.</p>
+<table>
+<thead>
+<tr>
+<th>Where</th>
+<th>Holds</th>
+<th>Lifetime</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>edge-watchlist.json</code>, the node&#39;s copy of the watchlist</td>
+<td>Active vehicle entries only: plate, kind (stolen, BOLO, …) and severity, plus the matching rule. No names, reasons, case references or sources</td>
+<td>Overwritten every 60 s while the core answers; kept through an outage, so a restarted worker still has it. An entry that expires during an outage stays in the copy until the link returns</td>
+</tr>
+<tr>
+<td><code>local-alerts.jsonl</code>, hits recorded during an outage</td>
+<td>Plate read, camera, sighting time, the watchlist plate it matched, its kind and severity, and whether the match was exact. Each hit is also a line in the worker&#39;s log, with the plate masked there (2.6)</td>
+<td>No rotation in the PoC: the file grows until cleared by hand. Rotating it, and clearing entries once the replayed alerts are closed, is design</td>
+</tr>
+<tr>
+<td>the folder&#39;s batch files, batches the core could not take</td>
+<td>Sighting rows as they would have been sent (plate, times, confidences, vehicle type and colour, the plate&#39;s box, track id, crop path; the crop itself is already in the crop store), and count and intrusion rows</td>
+<td>Bounded at 512 MB per worker (<code>SPOOL_MAX_MB</code>); past that, the oldest batches are dropped with a warning. Each file is deleted as soon as the core accepts it. A batch the core rejects as malformed (since 8 Oct also one whose event times carry no timezone or lie more than 14 days from now) moves to <code>rejected/</code> beside it and stays there until someone inspects and deletes it</td>
+</tr>
+</tbody></table>
+<p>Local hits follow the core&#39;s matching rule (exact, or one character off) and its cooldown of one
+per entry per camera per 120 s. The control-room alert is raised when the spooled sightings replay,
+with the time the vehicle was actually seen. In the PoC these are plain files on the node&#39;s disk;
+the production design encrypts the whole disk of every edge node (HLD 11.4).</p>
+<h3 id="h-2">2.4 Evaluation tooling, not product</h3><p>These tools exist to measure the pipeline. None is part of the product, and none is for real
+feeds without a decision about the data it writes.</p>
+<ul>
+<li><strong><code>TRACK_LOG</code></strong> is a worker setting, off by default. When set, the worker appends every plate
+track it closes to a JSONL file: camera, time, every OCR read of the plate, the voted plate and the
+best single read. It was used on stock footage with synthetic plates to compare the character vote
+with the best single read (<code>bench/results/plate_choice.md</code>). The file holds plate reads outside the
+database&#39;s partitions, scoping and audit, so it must never be enabled on real feeds without a
+retention decision.</li>
+<li><strong><code>bench/zone_check.py</code></strong> replays a clip file through the worker&#39;s detector and zone logic and
+saves the frame at each intrusion event with the zone and the triggering person&#39;s box drawn, so the
+event can be checked by eye. Those frames show people. It was run on the Pexels stock footage only,
+and it is not for government feeds, whose terms allow live streaming only.</li>
+<li><strong><code>bench/sandbox_eye.py</code></strong> measured plate accuracy on the organisers&#39; sandbox by comparing each stored
+sighting with its own evidence crop. Its contact sheets and labels hold real registrations, so they
+stay on the team&#39;s machine (<code>data/gov-sandbox/eye</code>, outside the repository); only totals are published.
+Real registrations appear in the government-feed report because the organisers ask for plates with
+timestamps. Still frames taken to choose which sandbox cameras to analyse were deleted after the review.
+With <code>score --from-db</code> it reads the verdicts people record on the plate review page (2.5) and, again,
+publishes totals only.</li>
+<li><strong>The frozen plate-reading test sets</strong> (<code>bench/ocr_sets.py</code>, under <code>data/ocr-eval</code>, outside the
+repository) hold copies of stored sandbox evidence crops with the blind reviewer&#39;s readings, so the
+plate reader can be re-scored on the same real plates (<code>bench/ocr_ab.py</code>, <code>bench/blind_errors.py</code>).
+They are test-only: nothing is trained on them, and no change is adopted on their evidence alone
+(<code>bench/ocr_gates.md</code>). Only counts and rates are published; plate text stays on the team&#39;s machine.</li>
+</ul>
+<h3 id="h-2">2.5 Plate review</h3><p>People check Sentinel&#39;s stored reads against their evidence crops on the control room&#39;s <em>Plate
+review</em> page (HLD 7.8). It captures nothing new: it shows crops the platform already keeps.</p>
+<ul>
+<li><strong>Who sees the crops.</strong> Administrators, supervisors and auditors (<code>reviews.read</code>, <code>reviews.write</code>);
+not operators or department nodal officers. Scoping applies as for every crop: a camera outside the
+reviewer&#39;s department or district is not offered. The queue is chosen by camera and time, never by
+plate (and, since 8 Oct, by band: a &quot;Below 0.9, unchecked&quot; filter puts the reads the control room marks
+&quot;check the crop&quot; first, HLD 7.5), and crops are served by sighting id, because a crop&#39;s file name
+carries the plate. In a blind
+check the page receives no plate text or confidence until the reviewer has answered.
+<code>scripts/security_checks.py</code> tests the refusals and the blind queue.</li>
+<li><strong>Audit.</strong> Every review is written to the audit trail as <code>plate.review</code>, with the reviewer, the
+sighting id, the mode and the verdict; a reviewer&#39;s later change to their own reading as <code>plate.review.edit</code>, with the
+first and the new verdict; each listing of readings in Results (plate by plate) as <code>plate.review.list</code>. The plate
+text is left out, so the audit log does not become a second list of registrations.</li>
+<li><strong>Results, plate by plate.</strong> Since 9 Oct, Results lists each review&#39;s reading beside Sentinel&#39;s read: a reviewer&#39;s
+own reviews, whose reads the page has already shown them, unless they ask for everyone&#39;s. Everyone&#39;s shows reads
+of crops they may not have checked, so those crops then leave their blind queue and a blind check of them is refused.</li>
+<li><strong>The labels are personal data.</strong> What a reviewer types is a registration, tied to a camera and a
+time. The readings stay in the database (<code>plate_reviews</code>), behind the same access as sightings, and
+only totals leave it (<code>bench/sandbox_eye.py score --from-db</code>). A review keeps a copy of the stored
+read, so its result outlives the sighting: reviews need their own retention period, set with the
+sightings&#39; (section 7). In the PoC they are kept.</li>
+<li><strong>Reuse.</strong> Each review is also a labelled example that could later retrain the plate reader, but only
+through the adoption gates written in advance in <code>bench/ocr_gates.md</code>. No real crop has been used for
+training, and the organisers&#39; sandbox footage is not trained on.</li>
+</ul>
+<h3 id="h-2">2.6 Logs</h3><p>Log files leave the database&#39;s scoping, audit and retention, so since 8 Oct they carry no whole
+registration where the platform writes one:</p>
+<ul>
+<li>The API&#39;s access log is off (<code>scripts/api.ps1</code> starts uvicorn with <code>--no-access-log</code>). It wrote every
+request line to a file under the user&#39;s temporary folder, including each plate searched and the token a
+browser then carried in a URL for the event WebSocket and evidence crops (HLD 11.4). Since 8 Oct no token
+travels in a URL: crops are fetched with the Authorization header, and the event WebSocket takes its token in its
+first message.</li>
+<li>The analytics worker&#39;s log masks each plate it stores to the state code and the last two characters
+(<code>GJ******34</code>), in the sighting line and the local-alert line alike, and since 8 Oct the warning that a
+read was muted as fixed text (the same text at the same spot again, HLD 7.1) masks the read and the stored
+text the same way; what it logs about counts and the not-a-plate rule is numbers.</li>
+<li>What still holds plate text outside the database, by design and listed here: the local-alerts file and
+the spool batches (2.3), the evidence crops&#39; file names (2.5), the evaluation files (2.4), and the
+detection report the organisers ask for, whose reads CSV since 8 Oct also carries each crop file&#39;s
+SHA-256 so a reader can check later that a crop is the one the report showed (an integrity check, not a
+signature).</li>
+</ul>
+<h2 id="h-2">3. Purpose limitation and audit</h2><ul>
+<li>Every movement query is written to an <strong>append-only audit log</strong> with the operator identity, the
+plate, the time window and the stated investigative purpose (optional in the PoC). A plate search
+is logged with the operator, the plate and the number of results. Listing a camera&#39;s recent
+sightings without naming a plate, which also shows plates, is audited since 8 Oct (<code>sightings.recent</code>,
+with the camera and the number of rows, never the plates), as is a watchlist check of one plate
+(<code>watchlist.check</code>, with the plate, like a search) and an export of the camera registry
+(<code>camera.export</code>, with the row count). Database rules make UPDATE and DELETE on the log no-ops.</li>
+<li>Adding a plate to the watchlist also looks back over the last 24 hours of sightings (exact reads
+and, for a plate added by hand, reads one character off), so a vehicle that passed before it was
+listed raises one alert, marked retrospective. The look-back is part of the audited
+<code>watchlist.create</code> record, with the plate and how many earlier sightings it found.</li>
+<li>Drawing or changing an intrusion zone is audited (<code>camera.zones</code>), with the ids of the zones
+that resulted.</li>
+<li>Every plate review is audited (<code>plate.review</code>, a change to one <code>plate.review.edit</code>, a listing of them
+<code>plate.review.list</code>) with the sighting id or the listing&#39;s scope, mode and verdict, never the plate text (2.5).</li>
+<li>Live-video views are not yet audited one by one: in the proof of concept the media relay is
+open to viewers on the local network. In production the relay asks the API whether a user may
+watch a camera (HLD 11.2), which is where each view is authorised and logged.</li>
+<li>The <code>auditor</code> role can read the log and reports, including the aggregate vehicle and person
+counts, but cannot view footage or search plates: oversight without operational access. It can
+check stored plate crops on the plate review page (2.5), which offers them by camera and time, never
+by plate. Counts, fleet
+and plate-reading quality reports are not audited per read; they are aggregates with no personal data
+(the quality report holds counts, medians and rates per camera, never plate text or a crop), and
+auditing a 30-second dashboard refresh would bury the plate searches the log exists to protect.</li>
+</ul>
+<h2 id="h-3">4. Role-based and departmental scoping</h2><ul>
+<li>Roles: admin, supervisor, operator, department nodal officer, auditor. Permissions are explicit
+lists, not implied by rank.</li>
+<li>A department nodal officer sees only their department&#39;s cameras. A district-scoped user sees only
+their district. Scoping is applied in the query layer, not the UI, so the API enforces it, and it
+covers evidence crops and zones too. Department scoping is tested end to end. District scoping is
+implemented but not yet tested; on 8 Oct a fault was fixed in which a user with a district and no
+department counted as statewide and saw every district.</li>
+</ul>
+<h2 id="h-4">5. Watchlists are sourced, not typed</h2><p>Watchlist entries carry a <code>source</code> (VAHAN, eGujCop, manual) and a <code>source_ref</code> (FIR number or
+upstream record id), an expiry (<code>valid_until</code>), and the creating user. An alert therefore always
+traces back to a document, and a stale entry expires instead of paging the control room forever.
+The copy that analytics nodes keep for outages (2.3) carries only plate, kind and severity: the
+names, reasons and references stay in the core.</p>
+<h2 id="h-5">6. Public-facing private cameras</h2><p>Where societies, malls or shops share feeds, the registry marks them <code>ownership = private_shared</code>
+and the same audit and scoping rules apply. Consent and terms are a policy matter for the
+department; the platform&#39;s job is to make the sharing visible and revocable.</p>
+<h2 id="h-6">7. What this does not solve</h2><ul>
+<li>Legal basis and retention periods are set by the Home Department, not by software. Until they
+are, the PoC keeps everything (section 2).</li>
+<li>The audit log is only as good as the review process around it. We recommend a monthly sampled
+review by the auditor role and a quarterly report to the DGP&#39;s office.</li>
+<li>Model bias in plate OCR (e.g. older or damaged plates) is a data problem; we log confidence
+scores so it can be measured, and we surface fuzzy matches as such rather than as certainties.</li>
+<li>The person and vehicle detector (stock COCO weights) has its own bias surface: it misses people
+in dense crowds, at night and at small sizes, and has no class for auto-rickshaws. For counts, a
+miss costs a number, not a wrongful stop. For an intrusion zone, a miss is a missed alert and a
+false detection sends an operator to the live view; neither rate is measured beyond the one clip
+in 2.2.</li>
+<li>Edge files (2.3) are unencrypted in the PoC, the local alert file is not rotated, and a deleted
+camera&#39;s crop files stay on disk (section 2). Logs no longer carry whole plates (2.6); the local
+alert file and the spool still do.</li>
+</ul>
+</main></body></html>

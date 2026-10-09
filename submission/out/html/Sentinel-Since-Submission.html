@@ -1,0 +1,204 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Sentinel — since the submission</title><style>
+@page { size: A4; margin: 16mm 15mm 14mm; }
+@page :first { margin: 0; }
+* { box-sizing: border-box; }
+body { font: 10.4pt/1.5 "Segoe UI", Arial, sans-serif; color: #0f172a; margin: 0; }
+.cover { height: 297mm; padding: 38mm 22mm 20mm; background: #0b1220; color: #fff; display: flex; flex-direction: column; page-break-after: always; }
+.cover .mark { width: 46px; height: 46px; border-radius: 11px; background: linear-gradient(135deg,#38bdf8,#6366f1); display: grid; place-items: center; font-weight: 800; font-size: 24px; margin-bottom: 28px; }
+.cover h1 { font-size: 34pt; line-height: 1.1; margin: 0 0 14px; font-weight: 700; color: #fff; }
+.cover .sub { font-size: 15pt; color: #cbd5e1; max-width: 150mm; }
+.cover .meta { margin-top: auto; font-size: 10.5pt; color: #94a3b8; border-top: 1px solid #1e293b; padding-top: 12px; }
+.cover .meta b { color: #e2e8f0; font-weight: 600; }
+.toc { margin-bottom: 18px; padding: 10px 14px 4px; background: #f1f5f9; border-radius: 8px; }
+.toc h2 { margin: 0 0 4px; font-size: 12pt; }
+.toc ol { padding-left: 18px; columns: 2; column-gap: 24px; margin: 4px 0 8px; font-size: 9.6pt; } .toc li { margin: 1px 0; }
+h1, h2, h3 { color: #0b1220; line-height: 1.25; }
+h2 { font-size: 16pt; margin: 22px 0 8px; padding-top: 4px; page-break-after: avoid; }
+h3 { font-size: 12pt; margin: 16px 0 6px; page-break-after: avoid; }
+p, li { orphans: 3; widows: 3; }
+ul, ol { padding-left: 20px; } li { margin: 2px 0; }
+code { font-family: Consolas, "Courier New", monospace; font-size: 9.2pt; background: #f1f5f9; padding: 0 3px; border-radius: 3px; }
+pre { background: #0f172a; color: #e2e8f0; padding: 10px 12px; border-radius: 6px; font-size: 8.4pt; line-height: 1.35; overflow: hidden; page-break-inside: avoid; }
+pre code { background: none; color: inherit; padding: 0; }
+table { width: 100%; border-collapse: collapse; margin: 8px 0 12px; font-size: 9.2pt; page-break-inside: avoid; }
+tr { page-break-inside: avoid; }
+th { background: #0f172a; color: #fff; text-align: left; font-weight: 600; padding: 5px 7px; }
+td { padding: 4px 7px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+tbody tr:nth-child(even) td { background: #f8fafc; }
+figure { margin: 10px 0 14px; page-break-inside: avoid; }
+figure img { width: 100%; border: 1px solid #e2e8f0; border-radius: 6px; }
+figcaption { font-size: 8.8pt; color: #475569; margin-top: 4px; }
+figcaption b { color: #0f172a; }
+strong { color: #0b1220; }
+blockquote { margin: 8px 0; padding: 6px 12px; background: #f1f5f9; border-radius: 6px; color: #334155; }
+hr { border: none; border-top: 1px solid #e2e8f0; margin: 16px 0; }
+
+@page :first { margin: 14mm 15mm 12mm; }
+body { font-size: 9.3pt; line-height: 1.4; }
+h1 { font-size: 20pt; margin: 0 0 2px; }
+.lb-head { color: #475569; font-size: 9.5pt; margin: 0 0 8px; padding-bottom: 6px; border-bottom: 2px solid #0b1220; }
+.gu { font-family: "Nirmala UI", "Shruti", "Noto Sans Gujarati", "Segoe UI", sans-serif; font-weight: 600; color: #0b1220; font-size: 10.5pt; }
+h2 { font-size: 12.5pt; margin: 10px 0 4px; }
+table { font-size: 8.6pt; margin: 4px 0 6px; } th, td { padding: 3px 6px; }
+figure { margin: 4px auto 6px; width: 92%; } figure img { width: 100%; }
+ul { margin: 2px 0; } li { margin: 1px 0; }
+table { page-break-inside: auto; }</style></head><body>
+
+
+<main><h1 id="h-0">Since the submission: 26 September to 9 October 2026</h1><p>An addendum to the jury pack. The pack submitted on 27 September describes commit <code>9349f8f</code>; the finale runs the tree
+committed before the 10 October freeze (<code>2572c82</code> of 8 October, plus the 7–8 October reliability and security fixes
+and this document pass). This page says what changed between the two, what was measured, what was tried
+and not adopted, and what runs on the day. Every number names the script-written file it comes from; nothing here is
+estimated. Written 8 October 2026; updated 9 October.</p>
+<h2 id="h-0">What was built</h2><table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Change</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7 Oct</td>
+<td><strong>Counts-only worker</strong>: vehicle and person counts and intrusion zones on every analytics camera at once, from keyframes only (PyAV <code>skip_frame</code>), as its own process beside the unchanged plate worker. A camera whose keyframes are more than 4 s apart is decoded in full. Count rows carry <code>detail.profile</code> (<code>keyframes</code> or <code>every-frame</code>). This is the Plan for Scale&#39;s tier B keyframe profile, which the pack called &quot;sized but not yet built&quot;.</td>
+<td><code>services/analytics/sentinel_analytics/counts.py</code>; settings <code>COUNTS_FPS</code>, <code>COUNTS_MAX_STREAMS</code>, <code>COUNTS_EXCLUDE</code>, <code>COUNTS_BATCH</code>, <code>COUNTS_WORKER_ID</code></td>
+</tr>
+<tr>
+<td>8 Oct</td>
+<td><strong>G3 confidence marking</strong>: a read stored below 0.9, or a watchlist alert on a one-character match, is marked &quot;check the crop&quot; in alerts, search, the journey view and the live toast; the Plate review page gains a &quot;Below 0.9, unchecked&quot; filter; each sighting stores <code>reads</code> and <code>agreement</code>. Nothing is suppressed; no alert rule changes. Default on; <code>CONFIDENCE_MARKING=false</code> restores the 26 Sep behaviour.</td>
+<td><code>services/api/sentinel_api/marking.py</code>; <code>bench/pipeline_gates.md</code> G3</td>
+</tr>
+<tr>
+<td>7–8 Oct</td>
+<td><strong>Two-laptop deployment</strong>: <code>RELAY_HOST</code> lets a worker on another machine reach the relay; the control room opens from another machine (<code>CORS_ORIGIN_REGEX</code>, <code>pageHost()</code>); <code>scripts/lan.ps1</code> configures laptop A for the LAN; <code>.env.b.example</code> is laptop B&#39;s settings file; <code>scripts/db_backup.ps1</code> (a dump and the crops every N seconds) and <code>scripts/db_restore.ps1</code> (laptop B takes over; the relay rebuilds every camera path from the restored sources).</td>
+<td><code>scripts/</code>, <code>.env.b.example</code>, <code>services/analytics/sentinel_analytics/config.py</code></td>
+</tr>
+<tr>
+<td>7–8 Oct</td>
+<td><strong>Reliability</strong>: the database, cache and relay restart with Docker (<code>restart: unless-stopped</code>; the core stayed down after a reboot on 7 Oct); the relay image pinned by digest; <code>scripts/api.ps1</code> waits for Postgres and runs <code>python -m uvicorn</code> with the access log off; <code>scripts/demo_prep.py</code> refuses to delete sightings on cameras onboarded by stream address unless <code>--force</code>; every launcher is <code>python -m …</code> (an antivirus held a <code>.exe</code> launcher on 7 Oct); a worker&#39;s spool directory is per worker id.</td>
+<td><code>docker-compose.yml</code>, <code>scripts/</code></td>
+</tr>
+<tr>
+<td>7–8 Oct</td>
+<td><strong>Security</strong>: the simulator&#39;s control port bound to loopback (its outage switch had no authentication); a stream already being pushed into the relay cannot be taken over by a second publisher (<code>overridePublisher: no</code>, so a camera&#39;s picture cannot be replaced from the LAN); the onboarding card hides the stream address; <code>scripts/onboard_urls.py</code> onboards a CSV of addresses through the relay so credentials never reach the registry; <code>scripts/set_analytics.py</code>; <code>scripts/set_passwords.py</code> and <code>scripts/rotate_secrets.py</code> replace the development secrets, and the API logs an error at start while one is still an example value; a login rate limit; the ingest key compared in constant time; ingest validation (time-zone-aware event times within ±14 days, a batch size cap); <code>camera_code</code> and stream-URL validation on every registry write path; <code>rtsp_url</code> masked in <code>GET /cameras</code> and the CSV export; plate text masked in the workers&#39; logs; the API&#39;s access log off (it wrote every plate searched); audit of <code>watchlist.check</code>, <code>sightings.recent</code> and the registry export; the detection report writes each evidence crop&#39;s SHA-256 (an integrity check, not a signature).</td>
+<td><code>services/api/</code>, <code>services/analytics/</code>, <code>scripts/security_checks.py</code> (23 checks at runtime, was 20), <code>scripts/detection_report.py</code></td>
+</tr>
+<tr>
+<td>8 Oct night</td>
+<td><strong>Model 1 and Model 2 gaps, and edge cases</strong>: maintenance state and note, installation year and AMC or warranty expiry in the registry (every write path, the Registry&#39;s Edit dialog) and ageing findings in gap analysis; camera-type and maintenance filters; alert tags and a tag filter; acting on another department&#39;s alert is &quot;not found&quot;. Request guards: a NUL character, <code>NaN</code>, out-of-range numbers, a malformed catalogue URL or CSV, and LIKE wildcards in searches were 500s or wrong answers, now 4xx or right; refusals no longer echo the submitted values. The video tile falls back to the relay&#39;s preview profile when a stream connects but gives no picture (internet HLS feeds with B-frames). The control room loads pages on first visit, shows when the API is down and fits a phone</td>
+<td><code>routers/cameras.py</code>, <code>routers/alerts.py</code>, <code>routers/reports.py</code>, <code>guards.py</code>, <code>web/src/components/EditCamera.tsx</code>, <code>web/src/components/WhepPlayer.tsx</code>, <code>scripts/edge_checks.py</code>, <code>scripts/ui_checks.mjs</code></td>
+</tr>
+<tr>
+<td>9 Oct</td>
+<td><strong>A real broker, NVDEC, internet feeds, concurrency</strong>: live events checked end to end on a real broker (alerts in scope, acknowledgements and tags to other control rooms, the reconnecting state); the request guard reads bodies sent without a content type; clearing a district works; the player ignores Chrome&#39;s 2x2 placeholder; three public internet HLS streams played through the relay; the NVIDIA decoder measured; <code>onboard_sandbox.py</code> works without the reviewed locations file</td>
+<td><code>scripts/edge_checks.py</code>, <code>scripts/ui_checks.mjs</code>, <code>bench/nvdec_decode.py</code>, <code>guards.py</code>, <code>routers/cameras.py</code>, <code>WhepPlayer.tsx</code>, <code>scripts/onboard_sandbox.py</code></td>
+</tr>
+<tr>
+<td>9 Oct, later</td>
+<td><strong>The organisers&#39; sandbox, reconnected</strong>: 30 of 30 cameras through Sentinel&#39;s URL onboarding, one at a time, consume only; the plate worker on CAM06/CAM07 and the counts worker on CAM01–CAM05 for 15 minutes; a retrospective alert on a plate already read. The health monitor probes each upstream host once a round; the relay&#39;s preview transcoder waits for a clean keyframe on a lossy source</td>
+<td><code>bench/sandbox_oct9.py</code>, <code>bench/preview_start.py</code>, <code>health_monitor.py</code>, <code>infra/mediamtx.yml</code>, <code>scripts/onboard_sandbox.py</code>, <code>submission/build/wall_probe.mjs</code></td>
+</tr>
+<tr>
+<td>9 Oct, afternoon</td>
+<td><strong>A retrospective alert no longer holds back a live one</strong>: listing a plate already seen raises a retrospective alert for that earlier pass; it used to count toward the 120 s cooldown, so the vehicle&#39;s next pass at the same camera raised nothing. Found when smoke&#39;s random plate fell one character from an earlier run&#39;s; smoke now draws again until its plate is clear. The 9 Oct sandbox sightings wait in the blind queue, with their scorer written before the first review</td>
+<td><code>routers/ingest.py</code>, <code>scripts/edge_checks.py</code>, <code>scripts/smoke.py</code>, <code>bench/sandbox_oct9_review.py</code></td>
+</tr>
+<tr>
+<td>9 Oct, afternoon</td>
+<td><strong>A saved review reading can be changed</strong>: the reviewer of the 9 Oct sandbox sightings mistyped a plate and could not correct it. The Plate review page now offers <em>Edit my reading</em> after the reveal and a list of the reviewer&#39;s saved reviews; the server grades the change and keeps it beside the first reading, which stays the blind one that results and scores use, and audits it as <code>plate.review.edit</code></td>
+<td><code>routers/reviews.py</code>, <code>review.py</code>, <code>upgrades.py</code>, <code>ReviewPage.tsx</code>, <code>bench/sandbox_oct9_review.py</code></td>
+</tr>
+<tr>
+<td>9 Oct, afternoon</td>
+<td><strong>Results, plate by plate</strong>: the Plate review page&#39;s Results list each review with Sentinel&#39;s read and confidence beside the reviewer&#39;s reading, any later change, and the verdict. A reviewer&#39;s own reviews by default; everyone&#39;s on request, after which the crops they had not checked leave their blind queue and a blind check of them is refused (<code>plate_review_shown</code>); each listing is audited</td>
+<td><code>routers/reviews.py</code>, <code>upgrades.py</code>, <code>ReviewPage.tsx</code></td>
+</tr>
+</tbody></table>
+<p>Tests: 379 unit tests (<code>uv run --no-sync pytest</code>; 245 at submission, 286 on the morning of 8 Oct, 309 that evening, 373 that night, 374 on 9 Oct before the health-probe change, 376 before the review edit), 34 smoke checks (unchanged, by rule), 23 security
+checks (20 at submission), and on 9 Oct 189 edge-case checks (<code>scripts/edge_checks.py</code>; 178 before the cooldown check, 179 before the review edit, 185 before the plate-by-plate list) and 111 control-room checks
+(<code>scripts/ui_checks.mjs</code>); smoke and security checks run 8 Oct on the rotated secrets, all passed; after the night round, on a native
+rig without Docker, 34 smoke and 22 of 23 security (the LAN publish probe got no answer there).</p>
+<h2 id="h-1">What was measured</h2><table>
+<thead>
+<tr>
+<th>Measurement</th>
+<th>Result</th>
+<th>Conditions</th>
+<th>File</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Counts-only worker, streams at once</td>
+<td>10: 0.67 frame/s per stream; 20: 0.82; 30: 0.82; 40: 0.78 on 2.46 CPU cores, GPU 13%; 50: 0.34 (saturated)</td>
+<td>One GTX 1650 Ti laptop, 7 Oct; 14 simulator cameras cycled (H.264 and H.265, 576p–1080p, keyframes every 1–2 s); relay CPU excluded; no plate worker running</td>
+<td><code>bench/results/counts_capacity.md</code></td>
+</tr>
+<tr>
+<td>Counts-only worker on the sandbox</td>
+<td>7 cameras counted 14–34 frames per minute each; keyframe intervals 0.95–15 s by camera; CAM07, CAM17, CAM18 switched to every-frame decoding; every session dropped by the sandbox several times in a 4-minute probe</td>
+<td>7 Oct, one laptop on its home connection, counts only</td>
+<td><code>bench/results/counts_sandbox.md</code></td>
+</tr>
+<tr>
+<td>G3 wiring pair</td>
+<td>marked share 161 of 748 scored sightings = the evaluation&#39;s below-0.9 count exactly; median first-read-to-alert 1.68 s with marking on against 2.25 s off (4 and 3 alerts); alert counts equal; live checks passed off and on; the F leg (a frozen fresh set) was not run, so no claim beyond the 120 blind-checked plates</td>
+<td>8 Oct, 4 own-feed cameras, 10-minute windows; the laptop also ran the control room&#39;s dev server and other tools (analysed fps below the 24 Sep run&#39;s in both arms)</td>
+<td><code>bench/results/g3_wiring.md</code></td>
+</tr>
+<tr>
+<td>OCR fine-tune <code>ft1</code> on the frozen sets</td>
+<td>real plates (sandbox-blind-v1): 88 → 89 of 120 exact, 8 fixed, 7 broken, p = 1.0; at confidence ≥ 0.9, 69 → 66 of 81; own feed (synthetic plates): +1.8 points; non-plate text: 0 of 23 pass, both; speed 1.02×</td>
+<td>26 Sep, CPU, the four frozen sets; the fresh-set leg lapsed (never frozen)</td>
+<td><code>bench/results/ocr_ft1.md</code></td>
+</tr>
+<tr>
+<td>Not-a-plate rule, live</td>
+<td>0 reads dropped in 135 minutes on CAM06 and CAM07 (111 sightings stored; the hoarding it was written for is in CAM06&#39;s view)</td>
+<td>26 Sep capture log, scored 8 Oct</td>
+<td><code>bench/results/plate_gate_live.md</code></td>
+</tr>
+<tr>
+<td>NVDEC, the NVIDIA decoder (decode only)</td>
+<td>1080p H.264: about 740 frames a second at its ceiling (about 29 streams at 25 fps) against 470–510 in software; 1080p H.265 with the resize on the GPU: about 1,500; at 16 real-time 1080p streams, system CPU 89% → 31% (H.264, decoded and resized to 640 px) and 75% → 32% (H.265)</td>
+<td>A GTX 1650 laptop, not the benchmark laptop; FFmpeg; 9 Oct; two rounds; the worker does not use NVDEC</td>
+<td><code>bench/results/nvdec_decode.md</code></td>
+</tr>
+<tr>
+<td>The organisers&#39; sandbox, reconnected</td>
+<td>30 of 30 onboarded, probe median 1.0 s (0.9–2.9 s); 32 sightings in 15 minutes on CAM06/CAM07 (20 at ≥ 0.9; unread); counts on CAM01–CAM05 at 44–56 frames a minute; one retrospective alert with its crop; a wall probe during heavy source trouble showed 14 of 30 within 40 s, and 15 of the 16 without a picture had that trouble in the relay&#39;s log</td>
+<td>9 Oct, one laptop, native stack, consume only</td>
+<td><code>bench/results/sandbox_oct9.md</code></td>
+</tr>
+<tr>
+<td>The relay&#39;s preview transcoder on lossy sources</td>
+<td>shipped command started 6 of 9 times (median 12.3 s), the adopted one 8 of 9 (median 7.2 s), alternating on CAM07, CAM08, CAM10</td>
+<td>9 Oct, the sandbox through the relay</td>
+<td><code>bench/results/preview_start.md</code></td>
+</tr>
+</tbody></table>
+<h2 id="h-2">What was tried and not adopted</h2><ul>
+<li><strong>The OCR fine-tune <code>ft1</code></strong>: non-inferior on real plates, no gain (the table above), so the shipped reader
+(<code>cct-xs-v2-global-model</code>) runs at the finale. <code>bench/results/ocr_ft1.md</code>.</li>
+<li><strong>25 reader changes without training</strong> (test-time augmentation, contrast, nine other models and ensembles, two-line
+halves, upscaling): already in the pack; none met its pre-set gain rule on real plates. <code>bench/results/ocr_fix_trials.md</code>.</li>
+<li><strong>G0, G2, G2b, G4, G5, G6</strong> (<code>bench/pipeline_gates.md</code>): not built, so not adopted.</li>
+<li><strong>YOLOX detectors</strong> (<code>bench/detector_gates.md</code>): not trained. Both detectors remain Ultralytics YOLO, AGPL-3.0, and
+every figure in the pack is theirs.</li>
+</ul>
+<p>The index of all of this is <code>bench/results/pipeline_gates_results.md</code>.</p>
+<h2 id="h-3">What the finale runs</h2><p>Two GTX 1650-class laptops. <strong>Laptop A</strong>: database, API, relay, the control room on the projector, and the plate worker on a
+fixed group of plate cameras at full rate (4 cameras at ~4.5 fps with object detection, <code>bench/results/latency.md</code>; or 8
+at 2.9 fps with the plate path alone, <code>bench/results/decode.md</code>). <strong>Laptop B</strong>: the counts-only worker on every other
+camera from keyframes, the judges&#39; hands-on console (operator login), and the hot spare (a database dump and the crops
+every 10 minutes to a USB stick; <code>scripts/db_restore.ps1</code> brings the control room up on B). No rotation. The plate
+pipeline is the 26 Sep build plus G3&#39;s marking; the plate detector runs at 640 px; the reader is unchanged.</p>
+<h2 id="h-4">What is unchanged, and what is still unmeasured</h2><p>Unchanged since the submission: real plates 90 of 120 exact (75.0%), 107 within one character, one blind reviewer, two
+readable sandbox views of 30 (<code>bench/results/sandbox_review.md</code>); at confidence 0.9 and above 69 of 81 exact; stock
+footage with synthetic plates 96.8% exact and 91.2% capture on AMD-TRAF-002 (<code>anpr_eval_current.md</code>); alert latency
+median 1.06 s, p95 1.94 s (<code>latency.md</code>); 30 of 30 sandbox cameras onboarded, 1.0–2.2 s each (<code>sandbox.md</code>). The two
+sandbox runs are the 25 Sep evening run and the 26 Sep morning run of the same looping footage, not day and night
+(<code>sandbox_daynight.md</code>). The capture grade describes a camera and does not predict a right read (<code>capture_quality.md</code>).</p>
+<p>Still unmeasured, and said so: capture on real plates; count accuracy (per-frame COCO detections, no auto-rickshaw
+class, night misses); a plate worker and the counts worker on one machine; streams per server node (the Plan for
+Scale&#39;s 250 per tier B node stays an assumption; one laptop took 40).</p>
+</main></body></html>

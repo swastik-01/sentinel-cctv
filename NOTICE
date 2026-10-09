@@ -1,0 +1,15 @@
+Sentinel
+Copyright 2026 the Sentinel team (Gujarat Police Innovation Challenge 2026 entry)
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Third-party components keep their own licences. In particular:
+- Ultralytics YOLO (plate and object detectors, `ultralytics` package and weights): AGPL-3.0. Running Sentinel with
+  them means meeting AGPL-3.0 for that part; the Plan for Scale names permissive detectors to replace them.
+- PyAV wheels bundle a GPL build of FFmpeg (used for decoding only).
+- react-leaflet: Hippocratic License.
+- MediaMTX: MIT. PostgreSQL/PostGIS, Valkey, FastAPI, React: their own open-source licences.
+Model weights and camera footage are not part of this repository.
+
+VAHAN, SARTHI, eGujCop, AFIS and NAFIS are government systems; the connectors here are mocks or declarations, not
+access to them. No facial recognition is included, by design.
